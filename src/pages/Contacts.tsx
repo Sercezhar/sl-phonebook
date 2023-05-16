@@ -1,3 +1,5 @@
+import ContactForm from '@/components/ContactForm';
+
 function Contacts() {
   const binding: string[] = [
     'top-[10%]',
@@ -17,6 +19,8 @@ function Contacts() {
         <h2 className="mb-4 font-semibold text-xl text-center">
           Create a contact
         </h2>
+
+        <ContactForm />
       </div>
 
       <div className="mr-1 p-6 pr-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
