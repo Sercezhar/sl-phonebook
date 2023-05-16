@@ -1,4 +1,5 @@
 import ContactForm from '@/components/ContactForm';
+import Filter from '@/components/Filter';
 
 function Contacts() {
   const binding: string[] = [
@@ -23,8 +24,10 @@ function Contacts() {
         <ContactForm />
       </div>
 
-      <div className="mr-1 p-6 pr-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
+      <div className="mr-1 p-6 pl-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
         <h2 className="mb-4 font-semibold text-xl text-center">Contacts</h2>
+
+        <Filter />
       </div>
 
       {binding.map((top, index) => (
