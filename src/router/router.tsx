@@ -34,5 +34,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: '/sl-phonebook/' }
+  { basename: '/' }
 );
