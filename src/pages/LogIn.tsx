@@ -12,8 +12,8 @@ interface UserProps {
   password: string;
 }
 
-function SignIn() {
-  const signInSchema = yup.object().shape({
+function LogIn() {
+  const logInSchema = yup.object().shape({
     email: yup
       .string()
       .required('is a required field')
@@ -30,7 +30,7 @@ function SignIn() {
     reset,
     formState: { errors },
   } = useForm<UserProps>({
-    resolver: yupResolver(signInSchema),
+    resolver: yupResolver(logInSchema),
   });
 
   function onSubmit(data: UserProps) {
@@ -71,4 +71,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default LogIn;

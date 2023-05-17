@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const Homepage = lazy(() => import('@/pages/Homepage'));
 const Contacts = lazy(() => import('@/pages/Contacts'));
-const SignIn = lazy(() => import('@/pages/SignIn'));
+const LogIn = lazy(() => import('@/pages/LogIn'));
 const SignUp = lazy(() => import('@/pages/SignUp'));
 const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
 
@@ -25,7 +25,7 @@ export const router = createBrowserRouter(
         },
         {
           path: 'login',
-          element: <SignIn />,
+          element: <LogIn />,
         },
         {
           path: 'signup',
