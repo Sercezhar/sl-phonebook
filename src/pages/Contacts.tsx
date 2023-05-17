@@ -15,8 +15,8 @@ function Contacts() {
   ];
 
   return (
-    <div className="relative flex mx-auto w-fit h-[540px]">
-      <div className="mr-1 p-6 pr-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
+    <div className="relative flex gap-1 mx-auto w-fit h-[540px]">
+      <div className="p-6 pr-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
         <h2 className="mb-4 font-semibold text-xl text-center">
           Create a contact
         </h2>
@@ -24,7 +24,7 @@ function Contacts() {
         <ContactForm />
       </div>
 
-      <div className="mr-1 p-6 pl-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
+      <div className=" p-6 pl-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
         <h2 className="mb-4 font-semibold text-xl text-center">Contacts</h2>
 
         <Filter />
