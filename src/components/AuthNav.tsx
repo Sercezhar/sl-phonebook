@@ -15,7 +15,7 @@ function AuthNav() {
               )
             }
           >
-            Sign In
+            Log in
           </NavLink>
         </li>
 
@@ -29,7 +29,7 @@ function AuthNav() {
               )
             }
           >
-            Sign Up
+            Sign up
           </NavLink>
         </li>
       </ul>
