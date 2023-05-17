@@ -5,7 +5,7 @@ function Filter() {
         htmlFor="filter"
         className="block mb-2 text-sm font-medium text-gray-900"
       >
-        Find contact by name
+        Search among contacts
       </label>
       <input
         type="text"
