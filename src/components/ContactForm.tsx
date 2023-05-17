@@ -1,54 +1,68 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import Input from './form/Input';
+
+interface ContactProps {
+  firstName: string;
+  lastName: string;
+  phone: string;
+}
+
 function ContactForm() {
+  const phoneRegExp =
+    /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
+
+  const contactSchema = yup.object().shape({
+    firstName: yup.string().required('is a required field'),
+    lastName: yup.string(),
+    phone: yup
+      .string()
+      .required('is a required field')
+      .min(5, 'must be at least 5 characters')
+      .matches(phoneRegExp, 'is not valid'),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactProps>({
+    resolver: yupResolver(contactSchema),
+  });
+
+  function onSubmit(data: ContactProps) {
+    console.log(data);
+    reset();
+  }
+
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-6 mb-6">
-        <div>
-          <label
-            htmlFor="first-name"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            First name
-          </label>
-          <input
-            type="text"
-            id="first-name"
-            className="block p-2.5 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-2 focus:ring-sky-200"
-            placeholder="John"
-            required
-          />
-        </div>
+        <Input
+          label="First name"
+          name="first-name"
+          placeholder="John"
+          register={register('firstName')}
+          error={errors.firstName}
+        />
 
-        <div>
-          <label
-            htmlFor="last-name"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Last name
-          </label>
-          <input
-            type="text"
-            id="last-name"
-            className="block p-2.5 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-2 focus:ring-sky-200"
-            placeholder="Doe"
-          />
-        </div>
+        <Input
+          label="Last name"
+          name="last-name"
+          placeholder="Doe"
+          register={register('lastName')}
+          error={errors.lastName}
+        />
 
-        <div>
-          <label
-            htmlFor="phone"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Phone number
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            className="block p-2.5 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-2 focus:ring-sky-200"
-            placeholder="123-45-678"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            required
-          />
-        </div>
+        <Input
+          label="Phone number"
+          name="phone"
+          placeholder="123-45-678"
+          register={register('phone')}
+          error={errors.phone}
+        />
       </div>
 
       <button
