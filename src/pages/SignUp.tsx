@@ -14,7 +14,7 @@ interface UserProps {
 }
 
 function SignUp() {
-  const signInSchema = yup.object().shape({
+  const signUnSchema = yup.object().shape({
     username: yup.string().required('is a required field'),
     email: yup
       .string()
@@ -32,7 +32,7 @@ function SignUp() {
     reset,
     formState: { errors },
   } = useForm<UserProps>({
-    resolver: yupResolver(signInSchema),
+    resolver: yupResolver(signUnSchema),
   });
 
   function onSubmit(data: UserProps) {
