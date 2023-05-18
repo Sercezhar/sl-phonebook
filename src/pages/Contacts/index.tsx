@@ -1,5 +1,5 @@
-import ContactForm from '@/components/ContactForm';
-import Filter from '@/components/Filter';
+import Filter from '@/pages/Contacts/Filter';
+import ContactForm from '@/pages/Contacts/ContactForm';
 
 function Contacts() {
   const binding: string[] = [

@@ -1,6 +1,6 @@
-import AuthNav from './AuthNav';
-import Logo from './Logo';
-import Navigation from './Navigation';
+import AuthNav from '../../components/AuthNav';
+import Logo from '../../components/Logo';
+import Navigation from '../../components/Navigation';
 
 function Header() {
   return (

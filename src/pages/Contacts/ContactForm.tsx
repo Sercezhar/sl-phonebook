@@ -2,8 +2,8 @@ import { patternPhone } from '@/constants/regExPatterns';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import Input from './form/Input';
-import Button from './ui/Button';
+import Input from '../../components/form/Input';
+import Button from '../../components/ui/Button';
 
 interface ContactProps {
   firstName: string;

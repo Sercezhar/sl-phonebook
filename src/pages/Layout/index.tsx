@@ -1,5 +1,5 @@
-import Header from '@/components/Header';
 import Loader from '@/components/Loader';
+import Header from '@/pages/Layout/Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
