@@ -1,20 +1,18 @@
-import Input from "@/components/form/Input";
-import PasswordInput from "@/components/form/PasswordInput";
-import Button from "@/components/ui/Button";
+import Input from '@/components/form/Input';
+import PasswordInput from '@/components/form/PasswordInput';
+import Button from '@/components/ui/Button';
 import { patternEmail } from '@/constants/regExPatterns';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
-interface UserProps {
-  username: string;
-  email: string;
-  password: string;
-}
+import { RegisterAttributes } from '@/types/authTypes';
+import { useAuth } from '@/hooks/useAuth';
 
 function SignUpForm() {
+  const { registerUser } = useAuth();
+
   const signUnSchema = yup.object().shape({
-    username: yup.string().required('is a required field'),
+    name: yup.string().required('is a required field'),
     email: yup
       .string()
       .required('is a required field')
@@ -30,12 +28,12 @@ function SignUpForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<UserProps>({
+  } = useForm<RegisterAttributes>({
     resolver: yupResolver(signUnSchema),
   });
 
-  function onSubmit(data: UserProps) {
-    console.log(data);
+  function onSubmit(data: RegisterAttributes) {
+    registerUser(data);
     reset();
   }
 
@@ -45,10 +43,10 @@ function SignUpForm() {
         <div className="grid gap-6 mb-6">
           <Input
             label="Username"
-            name="username"
+            name="name"
             placeholder="John"
-            register={register('username')}
-            error={errors.username}
+            register={register('name')}
+            error={errors.name}
           />
 
           <Input
