@@ -1,3 +1,5 @@
+import PrivateRoute from '@/components/PrivateRoute';
+import RestrictedRoute from '@/components/RestrictedRoute';
 import Layout from '@/pages/Layout';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
@@ -21,15 +23,17 @@ export const router = createBrowserRouter(
         },
         {
           path: 'contacts',
-          element: <Contacts />,
+          element: <PrivateRoute component={Contacts} redirectTo="/login" />,
         },
         {
           path: 'login',
-          element: <LogIn />,
+          element: <RestrictedRoute component={LogIn} redirectTo="/contacts" />,
         },
         {
           path: 'signup',
-          element: <SignUp />,
+          element: (
+            <RestrictedRoute component={SignUp} redirectTo="/contacts" />
+          ),
         },
       ],
     },
