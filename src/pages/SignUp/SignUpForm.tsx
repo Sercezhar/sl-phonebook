@@ -2,17 +2,20 @@ import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
 import Button from '@/components/ui/Button';
 import { patternEmail } from '@/constants/regExPatterns';
+import { useAuth } from '@/hooks/useAuth';
+import { RegisterAttributes } from '@/types/authTypes';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { RegisterAttributes } from '@/types/authTypes';
-import { useAuth } from '@/hooks/useAuth';
 
 function SignUpForm() {
   const { registerUser } = useAuth();
 
   const signUnSchema = yup.object().shape({
-    name: yup.string().required('is a required field'),
+    name: yup
+      .string()
+      .required('is a required field')
+      .max(28, 'must be at most 28 characters'),
     email: yup
       .string()
       .required('is a required field')
