@@ -1,10 +1,19 @@
 import Loader from '@/components/Loader';
+import { useAuth } from '@/hooks/useAuth';
 import Header from '@/pages/Layout/Header';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
 function Layout() {
-  return (
+  const { refreshUser, isRefreshing } = useAuth();
+
+  useEffect(() => {
+    refreshUser();
+  }, []);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <div>
       <Header />
 
