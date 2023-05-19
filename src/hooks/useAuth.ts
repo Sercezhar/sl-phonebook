@@ -1,15 +1,11 @@
-import { useAppDispatch, useAppSelector } from '@/redux/constants';
 import {
   logIn,
   logOut,
   refreshUser,
   register,
 } from '@/redux/auth/authOperations';
-import {
-  LogInAttributes,
-  RegisterAttributes,
-  UserAttributes,
-} from '@/types/authTypes';
+import { useAppDispatch, useAppSelector } from '@/redux/constants';
+import { LogInAttributes, RegisterAttributes, UserAttributes } from '@/types';
 
 export function useAuth() {
   const dispatch = useAppDispatch();

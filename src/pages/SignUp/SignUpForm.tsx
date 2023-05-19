@@ -3,7 +3,7 @@ import PasswordInput from '@/components/form/PasswordInput';
 import Button from '@/components/ui/Button';
 import { patternEmail } from '@/constants/regExPatterns';
 import { useAuth } from '@/hooks/useAuth';
-import { RegisterAttributes } from '@/types/authTypes';
+import { RegisterAttributes } from '@/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';

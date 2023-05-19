@@ -1,4 +1,4 @@
-import { LogInAttributes, RegisterAttributes } from '@/types/authTypes';
+import { LogInAttributes, RegisterAttributes } from '@/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
