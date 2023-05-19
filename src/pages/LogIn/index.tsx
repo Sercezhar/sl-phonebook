@@ -1,9 +1,10 @@
 import AuthCallout from '@/components/AuthCallout';
+import AuthContainer from '@/components/AuthContainer';
 import LogInForm from './LogInForm';
 
 function LogIn() {
   return (
-    <div className="mx-auto w-[320px] ">
+    <AuthContainer>
       <LogInForm />
 
       <AuthCallout
@@ -11,7 +12,7 @@ function LogIn() {
         linkText="Sign up"
         navigateTo="/signup"
       />
-    </div>
+    </AuthContainer>
   );
 }
 
