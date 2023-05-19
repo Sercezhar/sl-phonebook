@@ -7,11 +7,13 @@ function UserMenu() {
     <div className="flex items-center gap-4 font-medium text-right text-white">
       <div>
         <p className="text-sm">Greetings,</p>
-        <p>{user.name}</p>
+        <p className="max-w-[260px] text-ellipsis overflow-hidden">
+          {user.name}
+        </p>
       </div>
 
       <button
-        className="bg-white px-2 py-1 h-fit rounded text-sky-400"
+        className="bg-white px-2 py-1 h-fit rounded text-sky-400 focus:ring-4 focus:ring-sky-200"
         type="button"
         onClick={() => logOutUser()}
       >
