@@ -2,16 +2,15 @@ import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
 import Button from '@/components/ui/Button';
 import { patternEmail } from '@/constants/regExPatterns';
+import { LogInAttributes } from '@/types/authTypes';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
-interface UserProps {
-  email: string;
-  password: string;
-}
+import { useAuth } from '@/hooks/useAuth';
 
 function LogInForm() {
+  const { logInUser } = useAuth();
+
   const logInSchema = yup.object().shape({
     email: yup
       .string()
@@ -28,12 +27,12 @@ function LogInForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<UserProps>({
+  } = useForm<LogInAttributes>({
     resolver: yupResolver(logInSchema),
   });
 
-  function onSubmit(data: UserProps) {
-    console.log(data);
+  function onSubmit(data: LogInAttributes) {
+    logInUser(data);
     reset();
   }
 
