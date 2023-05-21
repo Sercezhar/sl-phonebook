@@ -20,3 +20,14 @@ export interface ConfidentialRouteProps {
   component: LazyExoticComponent<() => JSX.Element>;
   redirectTo?: string;
 }
+
+export interface NewContactAttributes {
+  name: string;
+  number: string;
+}
+
+export interface ContactAttributes {
+  id: string;
+  name: string;
+  number: string;
+}
