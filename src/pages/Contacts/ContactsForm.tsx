@@ -1,21 +1,24 @@
 import { patternPhone } from '@/constants/regExPatterns';
+import {useContacts} from '@/hooks/useContacts';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import Input from '../../components/form/Input';
 import Button from '../../components/ui/Button';
 
-interface ContactProps {
+export interface ContactAttributes {
   firstName: string;
   lastName: string;
-  phone: string;
+  number: string;
 }
 
-function ContactForm() {
+function ContactsForm() {
+  const { createContact } = useContacts();
+
   const contactSchema = yup.object().shape({
     firstName: yup.string().required('is a required field'),
     lastName: yup.string(),
-    phone: yup
+    number: yup
       .string()
       .required('is a required field')
       .min(5, 'must be at least 5 characters')
@@ -27,12 +30,17 @@ function ContactForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ContactProps>({
+  } = useForm<ContactAttributes>({
     resolver: yupResolver(contactSchema),
   });
 
-  function onSubmit(data: ContactProps) {
-    console.log(data);
+  function onSubmit(data: ContactAttributes) {
+    const newContact = {
+      name: `${data.firstName} ${data.lastName}`,
+      number: data.number,
+    };
+
+    createContact(newContact);
     reset();
   }
 
@@ -57,10 +65,10 @@ function ContactForm() {
 
         <Input
           label="Phone number"
-          name="phone"
+          name="number"
           placeholder="123-45-678"
-          register={register('phone')}
-          error={errors.phone}
+          register={register('number')}
+          error={errors.number}
         />
       </div>
 
@@ -69,4 +77,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default ContactsForm;
