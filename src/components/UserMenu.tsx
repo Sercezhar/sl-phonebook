@@ -13,7 +13,7 @@ function UserMenu() {
       </div>
 
       <button
-        className="bg-white px-2 py-1 h-fit rounded text-sky-400 focus:ring-4 focus:ring-sky-200"
+        className="bg-white px-3 py-1 h-fit rounded text-sky-400 outline-none transition-opacity hover:opacity-90 focus:ring-4 focus:ring-sky-200"
         type="button"
         onClick={() => logOutUser()}
       >
