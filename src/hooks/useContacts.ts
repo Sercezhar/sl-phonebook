@@ -11,7 +11,8 @@ import { contactsSelector } from '@/redux/contacts/contactsSelectors';
 export function useContacts() {
   const dispatch = useAppDispatch();
 
-  const contacts = useAppSelector(contactsSelector);
+  const contacts: ContactAttributes[] = useAppSelector(contactsSelector);
+  const isLoading: boolean = useAppSelector(state => state.contacts.isLoading);
 
   const handleGetContacts = () => dispatch(getContacts());
   const handleCreateContact = (contact: NewContactAttributes) =>
@@ -22,6 +23,7 @@ export function useContacts() {
 
   return {
     contacts,
+    isLoading,
     getContacts: handleGetContacts,
     createContact: handleCreateContact,
     deleteContact: handleDeleteContact,
