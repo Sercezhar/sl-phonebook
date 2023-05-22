@@ -16,24 +16,6 @@ function ContactsItemActions({
   const { deleteContact } = useContacts();
 
   return (
-    // <div className="flex gap-1">
-    //   <button
-    //     className="p-2 border border-sky-400 rounded transition-colors hover:bg-sky-50 outline-none focus:ring-2 focus:ring-sky-200"
-    //     type="button"
-    //     onClick={() => console.log('edit')}
-    //   >
-    //     <HiPencil size={20} className="fill-sky-400" />
-    //   </button>
-
-    //   <button
-    //     className="p-2 border border-sky-400 rounded transition-colors hover:bg-sky-50 outline-none focus:ring-2 focus:ring-sky-200"
-    //     type="button"
-    //     onClick={() => deleteContact(id)}
-    //   >
-    //     <HiTrash size={20} className="fill-sky-400" />
-    //   </button>
-    // </div>
-
     <div className="relative">
       <button
         className="group p-2 rounded-full"
@@ -58,10 +40,10 @@ function ContactsItemActions({
             onClick={toggleMenu}
           ></div>
 
-          <ul className="absolute right-full top-1/2 transform -translate-y-1/2 w-28 text-gray-600 bg-green-400 rounded overflow-hidden shadow border z-30">
-            <li>
+          <ul className="absolute right-full top-1/2 transform -translate-y-1/2 flex py-1 w-fit text-gray-600 bg-white rounded overflow-hidden shadow border z-30">
+            <li className="border-r">
               <button
-                className="group flex gap-1 w-full p-2 bg-white transition-colors hover:text-sky-400"
+                className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
                 type="button"
               >
                 <HiPencil
@@ -74,7 +56,7 @@ function ContactsItemActions({
 
             <li>
               <button
-                className="group flex gap-1 w-full p-2 bg-white transition-colors hover:text-sky-400"
+                className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
                 type="button"
                 onClick={() => deleteContact(id)}
               >

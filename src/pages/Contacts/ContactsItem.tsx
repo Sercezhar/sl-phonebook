@@ -22,9 +22,9 @@ function ContactsItem({
           {name.slice(0, 1)}
         </span>
 
-        <div>
-          <p className="flex items-center text-gray-600">{name}</p>
-          <p className="flex items-center">{number}</p>
+        <div className="max-w-[310px] whitespace-nowrap">
+          <p className="text-gray-600 text-ellipsis overflow-hidden">{name}</p>
+          <p className="text-ellipsis overflow-hidden">{number}</p>
         </div>
       </div>
 
