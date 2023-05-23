@@ -55,10 +55,10 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-6 mb-6">
         <Input
-          label="First name"
-          name="first-name"
+          label="Name"
+          name="name"
           placeholder="John"
-          defaultValue={contact!.name}
+          defaultValue={contact?.name}
           register={register('name')}
           error={errors.name}
         />
@@ -67,7 +67,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
           label="Phone number"
           name="number"
           placeholder="123-45-678"
-          defaultValue={contact!.number}
+          defaultValue={contact?.number}
           register={register('number')}
           error={errors.number}
         />
