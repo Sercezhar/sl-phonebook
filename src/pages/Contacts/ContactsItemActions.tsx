@@ -1,4 +1,3 @@
-import { useContacts } from '@/hooks/useContacts';
 import classNames from 'classnames';
 import { HiDotsVertical, HiPencil, HiTrash } from 'react-icons/hi';
 
@@ -6,15 +5,14 @@ interface ContactsItemActionsProps {
   id: string;
   isMenuVisible: boolean;
   toggleMenu: () => void;
+  setIsModalOpen: (modalType: string) => void;
 }
 
 function ContactsItemActions({
-  id,
   isMenuVisible,
   toggleMenu,
+  setIsModalOpen,
 }: ContactsItemActionsProps) {
-  const { deleteContact } = useContacts();
-
   return (
     <div className="relative">
       <button
@@ -40,11 +38,12 @@ function ContactsItemActions({
             onClick={toggleMenu}
           ></div>
 
-          <ul className="absolute right-full top-1/2 transform -translate-y-1/2 flex py-1 w-fit text-gray-600 bg-white rounded overflow-hidden shadow border z-30">
+          <ul className="absolute right-full top-1/2 transform -translate-y-1/2 flex py-1 w-fit text-gray-600 bg-white rounded overflow-hidden shadow-sm border z-30">
             <li className="border-r">
               <button
                 className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
                 type="button"
+                onClick={() => setIsModalOpen('edit')}
               >
                 <HiPencil
                   size={20}
@@ -58,7 +57,7 @@ function ContactsItemActions({
               <button
                 className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
                 type="button"
-                onClick={() => deleteContact(id)}
+                onClick={() => setIsModalOpen('delete')}
               >
                 <HiTrash
                   size={20}

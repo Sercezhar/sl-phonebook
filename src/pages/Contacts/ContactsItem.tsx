@@ -6,6 +6,7 @@ interface ContactItemProps {
   number: string;
   isMenuVisible: boolean;
   toggleMenu: () => void;
+  setIsModalOpen: (modalType: string) => void;
 }
 
 function ContactsItem({
@@ -14,11 +15,12 @@ function ContactsItem({
   number,
   isMenuVisible,
   toggleMenu,
+  setIsModalOpen,
 }: ContactItemProps) {
   return (
-    <li className="flex items-center justify-between py-1 font-medium text-sm border-b last:border-b-0">
+    <li className="flex items-center justify-between py-2 font-medium text-sm border-b last:border-b-0">
       <div className="flex">
-        <span className="flex items-center justify-center mr-2 w-[40px] h-[40px] text-lg text-white capitalize bg-sky-400 rounded-full select-none pointer-events-none">
+        <span className="flex items-center justify-center mr-2 w-[40px] h-[40px] text-xl text-sky-400 capitalize bg-sky-50 border-2 border-sky-400 rounded-full select-none pointer-events-none">
           {name.slice(0, 1)}
         </span>
 
@@ -32,6 +34,7 @@ function ContactsItem({
         id={id}
         isMenuVisible={isMenuVisible}
         toggleMenu={toggleMenu}
+        setIsModalOpen={setIsModalOpen}
       />
     </li>
   );
