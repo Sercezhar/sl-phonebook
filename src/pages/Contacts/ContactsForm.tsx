@@ -1,10 +1,10 @@
+import Input from '@/components/form/Input';
+import Button from '@/components/ui/buttons/Button';
 import { patternPhone } from '@/constants/regExPatterns';
-import {useContacts} from '@/hooks/useContacts';
+import { useContacts } from '@/hooks/useContacts';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import Input from '../../components/form/Input';
-import Button from '../../components/ui/Button';
 
 export interface ContactAttributes {
   firstName: string;

@@ -1,6 +1,6 @@
 import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/buttons/Button';
 import { patternEmail } from '@/constants/regExPatterns';
 import { useAuth } from '@/hooks/useAuth';
 import { RegisterAttributes } from '@/types';
