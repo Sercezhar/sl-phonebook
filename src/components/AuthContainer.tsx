@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 type AuthContainerProps = {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 };
 
 function AuthContainer({ children }: AuthContainerProps) {
