@@ -1,5 +1,7 @@
 import { LazyExoticComponent } from 'react';
 
+export type ButtonType = 'button' | 'submit' | 'reset';
+
 export interface UserAttributes {
   name: string | null;
   email: string | null;
