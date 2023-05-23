@@ -44,11 +44,15 @@ function ContactsList() {
     setIsModalOpen(null);
   }
 
-  return (
+  return isLoading ? (
+    <div className="relative h-[300px]">
+      <Loader />
+    </div>
+  ) : (
     <div className="relative">
-      {isLoading ? (
-        <div className="relative h-[300px]">
-          <Loader />
+      {contacts.length === 0 ? (
+        <div className="font-medium p-4 text-lg text-center text-gray-400">
+          The contact list is empty
         </div>
       ) : (
         <ul className="h-[350px] overflow-y-auto">
@@ -65,7 +69,7 @@ function ContactsList() {
               />
             ))
           ) : (
-            <li className="font-medium p-4 text-lg text-center text-gray-500">
+            <li className="font-medium p-4 text-lg text-center text-gray-400">
               No contacts found
             </li>
           )}
