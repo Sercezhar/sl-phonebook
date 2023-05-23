@@ -1,4 +1,5 @@
 import { useAuth } from '@/hooks/useAuth';
+import SecondaryButton from './ui/buttons/SecondaryButton';
 
 function UserMenu() {
   const { user, logOutUser } = useAuth();
@@ -12,13 +13,7 @@ function UserMenu() {
         </p>
       </div>
 
-      <button
-        className="bg-white px-3 py-1 h-fit rounded text-sky-400 outline-none transition-opacity hover:opacity-90 focus:ring-4 focus:ring-sky-200"
-        type="button"
-        onClick={() => logOutUser()}
-      >
-        Log out
-      </button>
+      <SecondaryButton text="Log out" onClick={() => logOutUser()} />
     </div>
   );
 }
