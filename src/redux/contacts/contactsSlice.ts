@@ -4,6 +4,7 @@ import type { RootState } from '../store';
 import {
   createContact,
   deleteContact,
+  editContact,
   getContacts,
 } from './contactsOperations';
 
@@ -42,11 +43,18 @@ const contactsSlice = createSlice({
         handleFulfilled(state);
         state.items = state.items.filter(item => item.id !== payload.id);
       })
+      .addCase(editContact.fulfilled, (state, { payload }) => {
+        handleFulfilled(state);
+        state.items = state.items.map(item =>
+          item.id === payload.id ? payload : item
+        );
+      })
       .addMatcher(
         isAnyOf(
           getContacts.pending,
           createContact.pending,
-          deleteContact.pending
+          deleteContact.pending,
+          editContact.pending
         ),
         state => {
           state.isLoading = true;
@@ -57,7 +65,8 @@ const contactsSlice = createSlice({
         isAnyOf(
           getContacts.rejected,
           createContact.rejected,
-          deleteContact.rejected
+          deleteContact.rejected,
+          editContact.rejected
         ),
         (state, { error }) => {
           state.isLoading = false;
