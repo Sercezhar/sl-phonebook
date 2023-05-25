@@ -13,8 +13,7 @@ function EditContactModal({ isModalOpen, contact, onClose }: ModalProps) {
     <Modal
       isModalOpen={isModalOpen}
       isButtons={false}
-      title="Editing a contact"
-      onConfirmText="Edit contact"
+      title="Edit contact"
       onClose={onClose}
       onConfirm={() => {}}
     >
