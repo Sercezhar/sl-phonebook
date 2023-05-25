@@ -18,24 +18,24 @@ function ContactsItem({
   setIsModalOpen,
 }: ContactItemProps) {
   return (
-    <li className="flex items-center justify-between py-2 font-medium text-sm border-b last:border-b-0">
-      <div className="flex">
-        <span className="flex items-center justify-center mr-2 w-[40px] h-[40px] text-xl text-sky-400 capitalize bg-sky-50 border-2 border-sky-400 rounded-full select-none pointer-events-none">
-          {name[0]}
-        </span>
+    <li className="grid grid-cols-[50px_auto_40px] py-2 font-medium text-sm border-b last:border-b-0">
+      <span className="flex items-center justify-center w-[40px] h-[40px] text-xl text-sky-400 capitalize bg-sky-50 border-2 border-sky-400 rounded-full select-none pointer-events-none">
+        {name[0]}
+      </span>
 
-        <div className="max-w-[310px] whitespace-nowrap">
-          <p className="text-gray-600 text-ellipsis overflow-hidden">{name}</p>
-          <p className="text-ellipsis overflow-hidden">{number}</p>
-        </div>
+      <div className="flex flex-col whitespace-nowrap overflow-hidden">
+        <p className="text-gray-600 text-ellipsis overflow-hidden">{name}</p>
+        <p className="text-ellipsis overflow-hidden">{number}</p>
       </div>
 
-      <ContactsItemActions
-        id={id}
-        isMenuVisible={isMenuVisible}
-        toggleMenu={toggleMenu}
-        setIsModalOpen={setIsModalOpen}
-      />
+      <div className="flex justify-end">
+        <ContactsItemActions
+          id={id}
+          isMenuVisible={isMenuVisible}
+          toggleMenu={toggleMenu}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </div>
     </li>
   );
 }
