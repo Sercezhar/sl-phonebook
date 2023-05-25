@@ -33,3 +33,7 @@ export interface ContactAttributes {
   name: string;
   number: string;
 }
+
+export interface NavigationProps {
+  closeMenu?: () => void;
+}
