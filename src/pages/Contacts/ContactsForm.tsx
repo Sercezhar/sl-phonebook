@@ -1,5 +1,6 @@
 import Input from '@/components/form/Input';
 import Button from '@/components/ui/buttons/Button';
+import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
 import { useContacts } from '@/hooks/useContacts';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,7 +13,11 @@ export interface ContactAttributes {
   number: string;
 }
 
-function ContactsForm() {
+interface ContactsFormProps {
+  onClose?: () => void;
+}
+
+function ContactsForm({ onClose }: ContactsFormProps) {
   const { createContact } = useContacts();
 
   const contactSchema = yup.object().shape({
@@ -42,6 +47,7 @@ function ContactsForm() {
 
     createContact(newContact);
     reset();
+    onClose?.();
   }
 
   return (
@@ -72,7 +78,13 @@ function ContactsForm() {
         />
       </div>
 
-      <Button type="submit" text="Add contact" />
+      <div className="flex gap-4 justify-end">
+        <div className="block lg:hidden">
+          <SecondaryButton text="Close" onClick={onClose} />
+        </div>
+
+        <Button type="submit" text="Create" />
+      </div>
     </form>
   );
 }
