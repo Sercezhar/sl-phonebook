@@ -1,4 +1,6 @@
 import Loader from '@/components/Loader';
+import CreateContactButton from '@/components/ui/buttons/CreateContactButton';
+import CreateContactModal from '@/components/ui/modals/CreateContactModal';
 import EditContactModal from '@/components/ui/modals/EditContactModal';
 import Modal from '@/components/ui/modals/Modal';
 import { useContacts } from '@/hooks/useContacts';
@@ -49,13 +51,13 @@ function ContactsList() {
       <Loader />
     </div>
   ) : (
-    <div className="relative">
+    <div>
       {contacts.length === 0 ? (
         <div className="font-medium p-4 text-lg text-center text-gray-400">
           The contact list is empty
         </div>
       ) : (
-        <ul className="h-[350px] overflow-y-auto">
+        <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
           {filteredContacts.length > 0 ? (
             filteredContacts.map(({ id, name, number }) => (
               <ContactsItem
@@ -87,6 +89,13 @@ function ContactsList() {
         contact={clickedContact}
         onClose={() => handleModalOnClose()}
       />
+
+      <CreateContactModal
+        isModalOpen={isModalOpen === 'create'}
+        onClose={() => handleModalOnClose()}
+      />
+
+      <CreateContactButton openModal={() => setIsModalOpen('create')} />
     </div>
   );
 }
