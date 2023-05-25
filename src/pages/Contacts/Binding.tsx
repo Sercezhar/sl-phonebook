@@ -12,7 +12,7 @@ function Binding() {
   ];
 
   return (
-    <ul>
+    <ul className="hidden lg:block">
       {binders.map((top, index) => (
         <li
           key={index}
