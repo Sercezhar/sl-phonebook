@@ -56,7 +56,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
       <div className="grid gap-6 mb-6">
         <Input
           label="Name"
-          name="name"
+          name="edit-name"
           placeholder="John"
           defaultValue={contact?.name}
           register={register('name')}
@@ -65,7 +65,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
 
         <Input
           label="Phone number"
-          name="number"
+          name="edit-number"
           placeholder="123-45-678"
           defaultValue={contact?.number}
           register={register('number')}
