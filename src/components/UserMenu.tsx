@@ -1,19 +1,32 @@
 import { useAuth } from '@/hooks/useAuth';
+import { NavigationProps } from '@/types';
+import Button from './ui/buttons/Button';
 import SecondaryButton from './ui/buttons/SecondaryButton';
 
-function UserMenu() {
+function UserMenu({ closeMenu }: NavigationProps) {
   const { user, logOutUser } = useAuth();
 
+  function handleLogOutUser() {
+    logOutUser();
+    closeMenu?.();
+  }
+
   return (
-    <div className="flex items-center gap-4 font-medium text-right text-white">
+    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium lg:text-right text-gray-700 lg:text-white">
       <div>
-        <p className="text-sm">Greetings</p>
-        <p className="max-w-[260px] text-ellipsis overflow-hidden">
+        <p className="text-lg lg:text-sm">Logged in as</p>
+        <p className="max-w-[260px] font-semibold lg:font-medium text-xl lg:text-base text-ellipsis overflow-hidden">
           {user.name}
         </p>
       </div>
 
-      <SecondaryButton text="Log out" onClick={() => logOutUser()} />
+      <div className="hidden lg:block">
+        <SecondaryButton text="Log out" onClick={() => logOutUser()} />
+      </div>
+
+      <div className="block lg:hidden">
+        <Button text="Log out" onClick={() => handleLogOutUser()} />
+      </div>
     </div>
   );
 }
