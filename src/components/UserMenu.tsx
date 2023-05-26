@@ -15,7 +15,7 @@ function UserMenu({ closeMenu }: NavigationProps) {
     <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium lg:text-right text-gray-700 lg:text-white">
       <div>
         <p className="text-lg lg:text-sm">Logged in as</p>
-        <p className="max-w-[260px] font-semibold lg:font-medium text-xl lg:text-base text-ellipsis overflow-hidden">
+        <p className="max-w-[220px] font-semibold text-xl lg:text-base text-ellipsis break-words lg:break-normal overflow-hidden">
           {user.name}
         </p>
       </div>
