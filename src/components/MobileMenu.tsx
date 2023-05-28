@@ -19,29 +19,27 @@ function MobileMenu() {
 
       <div
         className={classNames(
-          'absolute top-full left-0 w-screen h-[calc(100dvh-56px)] bg-black/[.3] transition-opacity overflow-hidden pointer-events-none',
+          'absolute top-full left-0 right-0 h-[calc(100dvh-56px)] bg-black transition overflow-hidden',
 
           isMenuOpen
-            ? 'opacity-100 pointer-events-auto delay-0'
-            : 'opacity-0 pointer-events-none delay-100'
+            ? 'bg-opacity-30 pointer-events-auto delay-0'
+            : 'bg-opacity-0 pointer-events-none delay-100'
         )}
       >
         <div
           className={classNames(
-            'absolute top-0  flex flex-col justify-between p-4 w-[calc(100%-20%)] h-full font-medium bg-white transition-all shadow overflow-hidden',
+            'absolute top-0 right-0 flex flex-col justify-between p-4 w-64 h-full font-medium bg-white transition-transform shadow overflow-hidden',
 
-            isMenuOpen
-              ? 'left-[20%] sm:left-1/2 delay-100'
-              : 'left-[100%] delay-0'
+            isMenuOpen ? 'transform-none delay-100' : 'translate-x-full delay-0'
           )}
         >
-          <Navigation closeMenu={() => setIsMenuOpen(false)} />
+          <div>
+            <Navigation closeMenu={() => setIsMenuOpen(false)} />
 
-          {isLoggedIn ? (
-            <UserMenu closeMenu={() => setIsMenuOpen(false)} />
-          ) : (
-            <AuthNav closeMenu={() => setIsMenuOpen(false)} />
-          )}
+            {!isLoggedIn && <AuthNav closeMenu={() => setIsMenuOpen(false)} />}
+          </div>
+
+          {isLoggedIn && <UserMenu closeMenu={() => setIsMenuOpen(false)} />}
         </div>
       </div>
     </div>

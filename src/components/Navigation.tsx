@@ -11,7 +11,7 @@ function Navigation({ closeMenu }: NavigationProps) {
             to="/"
             className={({ isActive }) =>
               classNames(
-                'relative inline-block py-4 mr-6 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-sky-400 lg:after:bg-white',
+                'relative inline-block py-4 mr-6 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-white',
                 isActive
                   ? 'after:block text-sky-400 lg:text-white'
                   : 'after:hidden text-gray-700 lg:text-white'
@@ -28,7 +28,7 @@ function Navigation({ closeMenu }: NavigationProps) {
             to="contacts"
             className={({ isActive }) =>
               classNames(
-                'relative inline-block py-4 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-sky-400 lg:after:bg-white',
+                'relative inline-block py-4 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-white',
                 isActive
                   ? 'after:block text-sky-400 lg:text-white'
                   : 'after:hidden text-gray-700 lg:text-white'

@@ -78,13 +78,15 @@ function ContactsForm({ onClose }: ContactsFormProps) {
         />
       </div>
 
-      <div className="flex gap-4 justify-end">
-        <div className="block lg:hidden">
+      <ul className="flex gap-4 justify-end lg:justify-center">
+        <li className="block lg:hidden">
           <SecondaryButton text="Close" onClick={onClose} />
-        </div>
+        </li>
 
-        <Button type="submit" text="Create" />
-      </div>
+        <li>
+          <Button type="submit" text="Create" />
+        </li>
+      </ul>
     </form>
   );
 }
