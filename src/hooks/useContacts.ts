@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from '@/redux/constants';
 import {
   createContact,
   deleteContact,
-  getContacts,
   editContact,
+  getContacts,
 } from '@/redux/contacts/contactsOperations';
-import { NewContactAttributes, ContactAttributes } from '@/types';
 import { contactsSelector } from '@/redux/contacts/contactsSelectors';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ContactAttributes, NewContactAttributes } from '@/types';
 
 export function useContacts() {
   const dispatch = useAppDispatch();

@@ -4,7 +4,7 @@ import {
   refreshUser,
   register,
 } from '@/redux/auth/authOperations';
-import { useAppDispatch, useAppSelector } from '@/redux/constants';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { LogInAttributes, RegisterAttributes, UserAttributes } from '@/types';
 
 export function useAuth() {
