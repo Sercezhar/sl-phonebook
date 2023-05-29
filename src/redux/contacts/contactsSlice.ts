@@ -17,12 +17,24 @@ interface ContactsState {
 const initialState: ContactsState = {
   items: [],
   isLoading: false,
-  error: '',
+  error: null,
 };
+
+function handlePending(state: ContactsState) {
+  state.isLoading = true;
+}
 
 function handleFulfilled(state: ContactsState) {
   state.isLoading = false;
   state.error = null;
+}
+
+function handleRejected(
+  state: ContactsState,
+  { payload }: { payload: string | undefined }
+) {
+  state.isLoading = false;
+  state.error = payload || 'Something went wrong';
 }
 
 const contactsSlice = createSlice({
@@ -56,10 +68,7 @@ const contactsSlice = createSlice({
           deleteContact.pending,
           editContact.pending
         ),
-        state => {
-          state.isLoading = true;
-          state.error = null;
-        }
+        handlePending
       )
       .addMatcher(
         isAnyOf(
@@ -68,10 +77,7 @@ const contactsSlice = createSlice({
           deleteContact.rejected,
           editContact.rejected
         ),
-        (state, { error }) => {
-          state.isLoading = false;
-          state.error = error.message || 'Something went wrong';
-        }
+        handleRejected
       ),
 });
 
