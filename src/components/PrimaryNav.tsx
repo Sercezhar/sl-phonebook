@@ -8,14 +8,14 @@ function PrimaryNav({ closeMenu }: NavigationProps) {
       <ul className="flex lg:gap-x-6 flex-col lg:flex-row">
         <li>
           <NavigationLink to="/" closeMenu={closeMenu}>
-            <HiHome size={26} className="lg:hidden mr-2 active" />
+            <HiHome size={26} className="lg:hidden mr-3 fill-inherit" />
             Home
           </NavigationLink>
         </li>
 
         <li>
           <NavigationLink to="contacts" closeMenu={closeMenu}>
-            <HiUserGroup size={26} className="lg:hidden mr-2 active" />
+            <HiUserGroup size={26} className="lg:hidden mr-3 fill-inherit" />
             Contacts
           </NavigationLink>
         </li>

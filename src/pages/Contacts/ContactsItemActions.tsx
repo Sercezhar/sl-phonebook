@@ -23,7 +23,7 @@ function ContactsItemActions({
         <HiDotsVertical
           size={20}
           className={classNames(
-            'fill-gray-400 transition-colors group-hover:fill-sky-400',
+            'fill-gray-500 transition-colors group-hover:fill-sky-400',
             {
               'fill-sky-400': isMenuVisible,
             }
@@ -47,7 +47,7 @@ function ContactsItemActions({
               >
                 <HiPencil
                   size={20}
-                  className="fill-gray-600 transition-colors group-hover:fill-sky-400"
+                  className="fill-gray-500 transition-colors group-hover:fill-sky-400"
                 />
                 Edit
               </button>
@@ -61,7 +61,7 @@ function ContactsItemActions({
               >
                 <HiTrash
                   size={20}
-                  className="fill-gray-600 transition-colors group-hover:fill-sky-400"
+                  className="fill-gray-500 transition-colors group-hover:fill-sky-400"
                 />
                 Delete
               </button>

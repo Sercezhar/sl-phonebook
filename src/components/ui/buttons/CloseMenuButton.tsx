@@ -10,7 +10,7 @@ function CloseMenuButton({ setIsMenuOpen }: MenuButtonProps) {
     >
       <HiX
         size={40}
-        className="fill-gray-600 transition-colors group-hover:fill-sky-400"
+        className="fill-gray-500 transition-colors group-hover:fill-sky-400"
       />
     </button>
   );
