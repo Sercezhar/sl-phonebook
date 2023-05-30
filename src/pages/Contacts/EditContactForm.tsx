@@ -1,9 +1,9 @@
 import Input from '@/components/form/Input';
-import Button from '@/components/ui/buttons/Button';
+import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
 import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
 import { useContacts } from '@/hooks/useContacts';
-import { ContactAttributes, NewContactAttributes } from '@/types';
+import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -79,7 +79,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
         </li>
 
         <li>
-          <Button type="submit" text="Edit" />
+          <PrimaryButton type="submit" text="Edit" />
         </li>
       </ul>
     </form>
