@@ -1,43 +1,23 @@
-import { NavigationProps } from '@/types';
-import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { NavigationProps } from '@/types/index';
+import { HiIdentification, HiLogin } from 'react-icons/hi';
+import NavigationLink from './NavigationLink';
 
 function AuthNav({ closeMenu }: NavigationProps) {
   return (
     <nav aria-label="Authorization navigation">
-      <ul className="flex flex-col lg:flex-row">
+      <ul className="flex lg:gap-x-6 flex-col lg:flex-row">
         <li>
-          <NavLink
-            to="login"
-            className={({ isActive }) =>
-              classNames(
-                'relative inline-block py-4 mr-6 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-white',
-                isActive
-                  ? 'after:block text-sky-400 lg:text-white'
-                  : 'after:hidden text-gray-700 lg:text-white'
-              )
-            }
-            onClick={closeMenu}
-          >
+          <NavigationLink to="login" closeMenu={closeMenu}>
+            <HiLogin size={26} className="lg:hidden mr-2 active" />
             Log in
-          </NavLink>
+          </NavigationLink>
         </li>
 
         <li>
-          <NavLink
-            to="signup"
-            className={({ isActive }) =>
-              classNames(
-                'relative inline-block py-4 font-semibold lg:font-medium text-3xl lg:text-base  after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-white',
-                isActive
-                  ? 'after:block text-sky-400 lg:text-white'
-                  : 'after:hidden text-gray-700 lg:text-white'
-              )
-            }
-            onClick={closeMenu}
-          >
+          <NavigationLink to="signup" closeMenu={closeMenu}>
+            <HiIdentification size={26} className="lg:hidden mr-2 active" />
             Sign up
-          </NavLink>
+          </NavigationLink>
         </li>
       </ul>
     </nav>
