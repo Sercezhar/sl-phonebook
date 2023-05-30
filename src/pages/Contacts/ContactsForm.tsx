@@ -1,5 +1,5 @@
 import Input from '@/components/form/Input';
-import Button from '@/components/ui/buttons/Button';
+import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
 import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
 import { useContacts } from '@/hooks/useContacts';
@@ -84,7 +84,7 @@ function ContactsForm({ onClose }: ContactsFormProps) {
         </li>
 
         <li>
-          <Button type="submit" text="Create" />
+          <PrimaryButton type="submit" text="Create" />
         </li>
       </ul>
     </form>
