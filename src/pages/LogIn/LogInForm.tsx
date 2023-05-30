@@ -1,9 +1,9 @@
 import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
-import Button from '@/components/ui/buttons/Button';
+import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
 import { patternEmail } from '@/constants/regExPatterns';
 import { useAuth } from '@/hooks/useAuth';
-import { LogInAttributes } from '@/types';
+import { LogInAttributes } from '@/types/user';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -55,7 +55,7 @@ function LogInForm() {
           />
         </div>
 
-        <Button type="submit" text="Log in" />
+        <PrimaryButton type="submit" text="Log in" />
       </form>
     </div>
   );
