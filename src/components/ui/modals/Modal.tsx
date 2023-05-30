@@ -1,6 +1,6 @@
 import useClickOutside from '@/hooks/useClickOutside';
 import { ReactNode } from 'react';
-import Button from '../buttons/Button';
+import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 
 type ModalProps = {
@@ -49,7 +49,7 @@ function Modal({
             </li>
 
             <li>
-              <Button text={onConfirmText} onClick={onConfirm} />
+              <PrimaryButton text={onConfirmText} onClick={onConfirm} />
             </li>
           </ul>
         )}
