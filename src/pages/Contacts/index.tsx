@@ -5,7 +5,7 @@ import ContactsList from './ContactsList';
 
 function Contacts() {
   return (
-    <div className="relative flex mx-auto w-full lg:w-fit h-full lg:h-[540px]">
+    <div className="relative flex mx-auto mb-7 w-full lg:w-fit h-full lg:h-[540px]">
       <div className="hidden lg:block mr-[4px] p-6 pr-12 w-[490px] h-full bg-white border-solid border-x-[6px] border-y-8 border-sky-400 rounded overflow-hidden">
         <h2 className="mb-4 font-semibold text-xl text-center text-gray-700">
           Create a contact
