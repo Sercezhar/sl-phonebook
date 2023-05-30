@@ -1,10 +1,10 @@
 import { HiPlus } from 'react-icons/hi';
 
-interface CreateContactButton {
+interface CreateContactButtonProps {
   openModal: () => void;
 }
 
-function CreateContactButton({ openModal }: CreateContactButton) {
+function CreateContactButton({ openModal }: CreateContactButtonProps) {
   return (
     <button
       className="fixed bottom-16 right-14 p-2 bg-sky-400 rounded-full lg:hidden"
