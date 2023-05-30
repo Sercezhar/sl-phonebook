@@ -1,9 +1,9 @@
 import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
-import Button from '@/components/ui/buttons/Button';
+import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
 import { patternEmail } from '@/constants/regExPatterns';
 import { useAuth } from '@/hooks/useAuth';
-import { RegisterAttributes } from '@/types';
+import { RegisterAttributes } from '@/types/user';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -67,7 +67,7 @@ function SignUpForm() {
           />
         </div>
 
-        <Button type="submit" text="Sign up" />
+        <PrimaryButton type="submit" text="Sign up" />
       </form>
     </div>
   );
