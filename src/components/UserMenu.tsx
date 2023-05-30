@@ -1,6 +1,6 @@
 import { useAuth } from '@/hooks/useAuth';
 import { NavigationProps } from '@/types';
-import Button from './ui/buttons/Button';
+import PrimaryButton from './ui/buttons/PrimaryButton';
 import SecondaryButton from './ui/buttons/SecondaryButton';
 
 function UserMenu({ closeMenu }: NavigationProps) {
@@ -25,7 +25,7 @@ function UserMenu({ closeMenu }: NavigationProps) {
       </div>
 
       <div className="block lg:hidden">
-        <Button text="Log out" onClick={() => handleLogOutUser()} />
+        <PrimaryButton text="Log out" onClick={() => handleLogOutUser()} />
       </div>
     </div>
   );
