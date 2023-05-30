@@ -1,4 +1,4 @@
-import { ContactAttributes } from '@/types';
+import { ContactAttributes } from '@/types/contact';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 import {

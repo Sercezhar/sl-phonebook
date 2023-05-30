@@ -1,4 +1,4 @@
-import { NavigationProps } from '@/types/index';
+import { NavigationProps } from '@/types';
 import { HiHome, HiUserGroup } from 'react-icons/hi';
 import NavigationLink from './NavigationLink';
 

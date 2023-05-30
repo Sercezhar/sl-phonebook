@@ -5,7 +5,7 @@ import EditContactModal from '@/components/ui/modals/EditContactModal';
 import Modal from '@/components/ui/modals/Modal';
 import { useContacts } from '@/hooks/useContacts';
 import { filterSelector } from '@/redux/filter/filterSelectors';
-import { ContactAttributes } from '@/types';
+import { ContactAttributes } from '@/types/contact';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ContactsItem from './ContactsItem';

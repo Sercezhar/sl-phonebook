@@ -5,7 +5,11 @@ import {
   register,
 } from '@/redux/auth/authOperations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { LogInAttributes, RegisterAttributes, UserAttributes } from '@/types';
+import {
+  LogInAttributes,
+  RegisterAttributes,
+  UserAttributes,
+} from '@/types/user';
 
 export function useAuth() {
   const dispatch = useAppDispatch();

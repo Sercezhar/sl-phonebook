@@ -6,7 +6,7 @@ import {
 } from '@/redux/contacts/contactsOperations';
 import { contactsSelector } from '@/redux/contacts/contactsSelectors';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { ContactAttributes, NewContactAttributes } from '@/types';
+import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 
 export function useContacts() {
   const dispatch = useAppDispatch();

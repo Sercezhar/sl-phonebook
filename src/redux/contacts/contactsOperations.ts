@@ -1,4 +1,4 @@
-import { ContactAttributes, NewContactAttributes } from '@/types';
+import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';

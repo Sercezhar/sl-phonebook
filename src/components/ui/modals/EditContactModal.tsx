@@ -1,5 +1,5 @@
 import EditContactForm from '@/pages/Contacts/EditContactForm';
-import { ContactAttributes } from '@/types';
+import { ContactAttributes } from '@/types/contact';
 import Modal from './Modal';
 
 type ModalProps = {
