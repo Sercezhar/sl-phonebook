@@ -1,11 +1,14 @@
 import { HiEye, HiEyeOff } from 'react-icons/hi';
 
-interface ButtonProps {
+interface PasswordVisibilityToggleProps {
   isPasswordVisible: boolean;
   onClick?: () => void;
 }
 
-function PasswordVisibilityToggle({ isPasswordVisible, onClick }: ButtonProps) {
+function PasswordVisibilityToggle({
+  isPasswordVisible,
+  onClick,
+}: PasswordVisibilityToggleProps) {
   return (
     <button
       className="group absolute top-1/2 right-2 transform -translate-y-1/2 p-1"
