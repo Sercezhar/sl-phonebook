@@ -5,10 +5,10 @@ import NavigationLink from './NavigationLink';
 function AuthNav({ closeMenu }: NavigationProps) {
   return (
     <nav aria-label="Authorization navigation">
-      <ul className="flex lg:gap-x-6 flex-col lg:flex-row">
+      <ul className="flex flex-col lg:flex-row lg:gap-x-6">
         <li>
           <NavigationLink to="login" closeMenu={closeMenu}>
-            <HiLogin size={26} className="lg:hidden mr-3 fill-inherit" />
+            <HiLogin size={26} className="mr-3 fill-inherit lg:hidden" />
             Log in
           </NavigationLink>
         </li>
@@ -17,7 +17,7 @@ function AuthNav({ closeMenu }: NavigationProps) {
           <NavigationLink to="signup" closeMenu={closeMenu}>
             <HiIdentification
               size={26}
-              className="lg:hidden mr-3 fill-inherit"
+              className="mr-3 fill-inherit lg:hidden"
             />
             Sign up
           </NavigationLink>

@@ -18,14 +18,14 @@ function ContactsItem({
   setIsModalOpen,
 }: ContactItemProps) {
   return (
-    <li className="grid grid-cols-[50px_auto_40px] py-2 font-medium text-sm border-b last:border-b-0">
-      <span className="flex items-center justify-center w-[40px] h-[40px] text-xl text-sky-400 capitalize bg-sky-50 border-2 border-sky-400 rounded-full select-none pointer-events-none">
+    <li className="grid grid-cols-[50px_auto_40px] border-b py-2 text-sm font-medium last:border-b-0">
+      <span className="pointer-events-none flex h-[40px] w-[40px] select-none items-center justify-center rounded-full border-2 border-sky-400 bg-sky-50 text-xl capitalize text-sky-400">
         {name[0]}
       </span>
 
-      <div className="flex flex-col whitespace-nowrap overflow-hidden">
-        <p className="text-gray-600 text-ellipsis overflow-hidden">{name}</p>
-        <p className="text-ellipsis overflow-hidden">{number}</p>
+      <div className="flex flex-col overflow-hidden whitespace-nowrap">
+        <p className="overflow-hidden text-ellipsis text-gray-600">{name}</p>
+        <p className="overflow-hidden text-ellipsis">{number}</p>
       </div>
 
       <div className="flex items-center justify-end">

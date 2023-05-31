@@ -1,11 +1,11 @@
-import Input from '@/components/form/Input';
-import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
-import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
 import { useContacts } from '@/hooks/useContacts';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import Input from './form/Input';
+import PrimaryButton from './ui/buttons/PrimaryButton';
+import SecondaryButton from './ui/buttons/SecondaryButton';
 
 export interface ContactAttributes {
   firstName: string;
@@ -52,7 +52,7 @@ function CreateContactForm({ onClose }: CreateContactFormProps) {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid gap-6 mb-6">
+      <div className="mb-6 grid gap-6">
         <Input
           label="First name"
           name="first-name"
@@ -78,7 +78,7 @@ function CreateContactForm({ onClose }: CreateContactFormProps) {
         />
       </div>
 
-      <ul className="flex gap-4 justify-end lg:justify-center">
+      <ul className="flex justify-end gap-4 lg:justify-center">
         <li className="block lg:hidden">
           <SecondaryButton text="Close" onClick={onClose} />
         </li>

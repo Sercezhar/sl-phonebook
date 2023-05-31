@@ -1,3 +1,5 @@
+import CloseMenuButton from '@/components/ui/buttons/CloseMenuButton';
+import OpenMenuButton from '@/components/ui/buttons/OpenMenuButton';
 import { useAuth } from '@/hooks/useAuth';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import classNames from 'classnames';
@@ -5,8 +7,6 @@ import { useState } from 'react';
 import AuthNav from './AuthNav';
 import PrimaryNav from './PrimaryNav';
 import UserMenu from './UserMenu';
-import CloseMenuButton from './ui/buttons/CloseMenuButton';
-import OpenMenuButton from './ui/buttons/OpenMenuButton';
 
 function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -27,17 +27,17 @@ function MobileMenu() {
 
       <div
         className={classNames(
-          'absolute top-0 left-0 right-0 h-[100dvh] bg-black transition overflow-hidden',
+          'absolute left-0 right-0 top-0 h-[100dvh] overflow-hidden bg-black transition',
 
           isMenuOpen
-            ? 'bg-opacity-30 pointer-events-auto delay-0'
-            : 'bg-opacity-0 pointer-events-none delay-100'
+            ? 'pointer-events-auto bg-opacity-30 delay-0'
+            : 'pointer-events-none bg-opacity-0 delay-100'
         )}
       >
         <div
           ref={ref}
           className={classNames(
-            'absolute top-0 right-0 flex flex-col justify-between py-12 px-6 w-64 sm:w-96 h-full font-medium bg-white transition-transform shadow overflow-hidden',
+            'absolute right-0 top-0 flex h-full w-64 flex-col justify-between overflow-hidden bg-white px-6 py-12 font-medium shadow transition-transform sm:w-96',
 
             isMenuOpen ? 'transform-none delay-100' : 'translate-x-full delay-0'
           )}

@@ -4,7 +4,7 @@ interface NotificationProps {
 
 function Notification({ message }: NotificationProps) {
   return (
-    <div className="font-medium p-4 text-lg text-center text-gray-400">
+    <div className="p-4 text-center text-lg font-medium text-gray-400">
       {message}
     </div>
   );

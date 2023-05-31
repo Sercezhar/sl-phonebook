@@ -1,6 +1,6 @@
-import EditContactForm from '@/pages/Contacts/EditContactForm';
 import { ContactAttributes } from '@/types/contact';
-import Modal from './Modal';
+import Modal from '../Modal';
+import EditContactForm from './EditContactForm';
 
 type ModalProps = {
   isModalOpen: boolean;

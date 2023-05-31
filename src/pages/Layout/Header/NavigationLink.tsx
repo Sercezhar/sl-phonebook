@@ -14,10 +14,10 @@ function NavigationLink({ to, closeMenu, children }: NavigationLinkProps) {
       to={to}
       className={({ isActive }) =>
         classNames(
-          'relative flex items-center py-4 font-semibold lg:font-medium text-3xl lg:text-base after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-white',
+          'relative flex items-center py-4 text-3xl font-semibold after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:bg-white after:content-[""] lg:text-base lg:font-medium',
           isActive
-            ? 'after:block text-sky-400 lg:text-white max-lg:fill-sky-400'
-            : 'after:hidden text-gray-700 lg:text-white max-lg:fill-gray-500'
+            ? 'text-sky-400 after:block max-lg:fill-sky-400 lg:text-white'
+            : 'text-gray-700 after:hidden max-lg:fill-gray-500 lg:text-white'
         )
       }
       onClick={closeMenu}

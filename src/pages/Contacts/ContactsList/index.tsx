@@ -1,4 +1,3 @@
-import Notification from '@/components/Notification';
 import CreateContactButton from '@/components/ui/buttons/CreateContactButton';
 import CreateContactModal from '@/components/ui/modals/CreateContactModal';
 import EditContactModal from '@/components/ui/modals/EditContactModal';
@@ -10,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ContactsItem from './ContactsItem';
 import ContactsItemSkeleton from './ContactsItemSkeleton';
+import Notification from './Notification';
 
 function ContactsList() {
   const { contacts, isLoading, getContacts, deleteContact } = useContacts();

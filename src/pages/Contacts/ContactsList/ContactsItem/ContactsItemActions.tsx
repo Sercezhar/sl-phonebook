@@ -26,7 +26,7 @@ function ContactsItemActions({
   return (
     <div className="relative">
       <button
-        className="group p-2 rounded-full"
+        className="group rounded-full p-2"
         type="button"
         onClick={toggleMenu}
       >
@@ -46,17 +46,17 @@ function ContactsItemActions({
           isMenuVisible && (
             <div>
               <div
-                className="fixed inset-0 bg-transparent z-20"
+                className="fixed inset-0 z-20 bg-transparent"
                 onClick={toggleMenu}
               ></div>
 
               <animated.ul
                 style={{ ...styles, transform: 'translateY(-50%)' }}
-                className="absolute right-full top-1/2 flex py-1 w-fit text-gray-900 bg-white rounded overflow-hidden shadow-sm border z-30"
+                className="absolute right-full top-1/2 z-30 flex w-fit overflow-hidden rounded border bg-white py-1 text-gray-900 shadow-sm"
               >
                 <li className="border-r">
                   <button
-                    className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
+                    className="group flex w-full gap-1 bg-white px-3 py-1 transition-colors hover:text-sky-400"
                     type="button"
                     onClick={() => setIsModalOpen('edit')}
                   >
@@ -70,7 +70,7 @@ function ContactsItemActions({
 
                 <li>
                   <button
-                    className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
+                    className="group flex w-full gap-1 bg-white px-3 py-1 transition-colors hover:text-sky-400"
                     type="button"
                     onClick={() => setIsModalOpen('delete')}
                   >

@@ -2,7 +2,7 @@ import { RiBookletFill } from 'react-icons/ri';
 
 function Logo() {
   return (
-    <span className="flex items-center select-none pointer-events-none">
+    <span className="pointer-events-none flex select-none items-center">
       <RiBookletFill className="mr-2" size={36} color="#fff" />
 
       <span className="flex flex-col leading-4 text-white">

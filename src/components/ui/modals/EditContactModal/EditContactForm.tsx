@@ -1,12 +1,12 @@
 import Input from '@/components/form/Input';
-import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
-import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
 import { useContacts } from '@/hooks/useContacts';
 import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import PrimaryButton from '../../buttons/PrimaryButton';
+import SecondaryButton from '../../buttons/SecondaryButton';
 
 interface EditContactFormProps {
   contact: ContactAttributes | null;
@@ -53,7 +53,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <div className="grid gap-6 mb-6">
+      <div className="mb-6 grid gap-6">
         <Input
           label="Name"
           name="edit-name"
@@ -73,7 +73,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
         />
       </div>
 
-      <ul className="flex gap-4 justify-end">
+      <ul className="flex justify-end gap-4">
         <li>
           <SecondaryButton text="Cancel" onClick={onClose} />
         </li>
