@@ -1,4 +1,4 @@
-import ContactsForm from '@/pages/Contacts/ContactsForm';
+import CreateContactForm from '@/pages/Contacts/CreateContactForm';
 import Filter from '@/pages/Contacts/Filter';
 import Binding from './Binding';
 import ContactsList from './ContactsList';
@@ -11,7 +11,7 @@ function Contacts() {
           Create a contact
         </h2>
 
-        <ContactsForm />
+        <CreateContactForm />
       </div>
 
       <div className="sm:max-lg:mx-auto p-1 lg:p-6 lg:pl-12 w-full sm:w-[490px] h-full bg-white border-solid lg:border-x-[6px] lg:border-y-8 border-sky-400 rounded overflow-hidden">
