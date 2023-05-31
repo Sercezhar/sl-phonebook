@@ -1,4 +1,4 @@
-import ContactsForm from '@/pages/Contacts/ContactsForm';
+import CreateContactForm from '@/pages/Contacts/CreateContactForm';
 import Modal from './Modal';
 
 type ModalProps = {
@@ -15,7 +15,7 @@ function CreateContactModal({ isModalOpen, onClose }: ModalProps) {
       onClose={onClose}
       onConfirm={() => {}}
     >
-      <ContactsForm onClose={onClose} />
+      <CreateContactForm onClose={onClose} />
     </Modal>
   );
 }
