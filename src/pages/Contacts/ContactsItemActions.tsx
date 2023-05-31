@@ -1,3 +1,4 @@
+import { animated, useTransition } from '@react-spring/web';
 import classNames from 'classnames';
 import { HiDotsVertical, HiPencil, HiTrash } from 'react-icons/hi';
 
@@ -13,6 +14,15 @@ function ContactsItemActions({
   toggleMenu,
   setIsModalOpen,
 }: ContactsItemActionsProps) {
+  const actionsTransition = useTransition(isMenuVisible, {
+    from: { opacity: 0, scale: 0.8 },
+    enter: { opacity: 1, scale: 1 },
+    leave: { opacity: 0, scale: 0.8 },
+    config: {
+      duration: 100,
+    },
+  });
+
   return (
     <div className="relative">
       <button
@@ -31,43 +41,49 @@ function ContactsItemActions({
         />
       </button>
 
-      {isMenuVisible && (
-        <div>
-          <div
-            className="fixed top-0 left-0 bottom-0 right-0 bg-transparent z-20"
-            onClick={toggleMenu}
-          ></div>
+      {actionsTransition(
+        (styles, isMenuVisible) =>
+          isMenuVisible && (
+            <div>
+              <div
+                className="fixed inset-0 bg-transparent z-20"
+                onClick={toggleMenu}
+              ></div>
 
-          <ul className="absolute right-full top-1/2 transform -translate-y-1/2 flex py-1 w-fit text-gray-600 bg-white rounded overflow-hidden shadow-sm border z-30">
-            <li className="border-r">
-              <button
-                className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
-                type="button"
-                onClick={() => setIsModalOpen('edit')}
+              <animated.ul
+                style={{ ...styles, transform: 'translateY(-50%)' }}
+                className="absolute right-full top-1/2 flex py-1 w-fit text-gray-900 bg-white rounded overflow-hidden shadow-sm border z-30"
               >
-                <HiPencil
-                  size={20}
-                  className="fill-gray-500 transition-colors group-hover:fill-sky-400"
-                />
-                Edit
-              </button>
-            </li>
+                <li className="border-r">
+                  <button
+                    className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
+                    type="button"
+                    onClick={() => setIsModalOpen('edit')}
+                  >
+                    <HiPencil
+                      size={20}
+                      className="fill-gray-500 transition-colors group-hover:fill-sky-400"
+                    />
+                    Edit
+                  </button>
+                </li>
 
-            <li>
-              <button
-                className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
-                type="button"
-                onClick={() => setIsModalOpen('delete')}
-              >
-                <HiTrash
-                  size={20}
-                  className="fill-gray-500 transition-colors group-hover:fill-sky-400"
-                />
-                Delete
-              </button>
-            </li>
-          </ul>
-        </div>
+                <li>
+                  <button
+                    className="group flex gap-1 w-full px-3 py-1 bg-white transition-colors hover:text-sky-400"
+                    type="button"
+                    onClick={() => setIsModalOpen('delete')}
+                  >
+                    <HiTrash
+                      size={20}
+                      className="fill-gray-500 transition-colors group-hover:fill-sky-400"
+                    />
+                    Delete
+                  </button>
+                </li>
+              </animated.ul>
+            </div>
+          )
       )}
     </div>
   );
