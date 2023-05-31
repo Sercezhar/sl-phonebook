@@ -49,14 +49,14 @@ function Modal({
       isModalOpen && (
         <animated.div
           style={styles}
-          className="fixed top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center bg-black/[.3] z-50"
+          className="fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-center justify-center bg-black/[.3]"
         >
           <animated.div
             style={contentTransition}
             ref={ref}
-            className="flex flex-col gap-6 p-6 w-[288px] sm:w-[400px] font-medium bg-white rounded shadow-xl"
+            className="flex w-[288px] flex-col gap-6 rounded bg-white p-6 font-medium shadow-xl sm:w-[400px]"
           >
-            <h2 className="font-semibold text-xl">{title}</h2>
+            <h2 className="text-xl font-semibold">{title}</h2>
 
             <div>
               {children ? (
@@ -69,7 +69,7 @@ function Modal({
             </div>
 
             {isButtons && (
-              <ul className="flex gap-4 justify-end">
+              <ul className="flex justify-end gap-4">
                 <li>
                   <SecondaryButton text="Cancel" onClick={onClose} />
                 </li>

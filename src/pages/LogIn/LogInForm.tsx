@@ -37,9 +37,9 @@ function LogInForm() {
   }
 
   return (
-    <div className="mb-4 p-4 border border-sky-400 rounded">
+    <div className="mb-4 rounded border border-sky-400 p-4">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid gap-6 mb-6">
+        <div className="mb-6 grid gap-6">
           <Input
             label="Email address"
             type="email"

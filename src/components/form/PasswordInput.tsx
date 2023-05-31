@@ -14,11 +14,11 @@ function PasswordInput({ register, error }: PasswordInputProps) {
     <div>
       <label
         htmlFor="password"
-        className="block mb-2 text-sm font-medium text-gray-900"
+        className="mb-2 block text-sm font-medium text-gray-900"
       >
         Password
         {error && (
-          <span className="ml-1 text-red-400 font-medium text-sm">
+          <span className="ml-1 text-sm font-medium text-red-400">
             {error.message}
           </span>
         )}
@@ -27,7 +27,7 @@ function PasswordInput({ register, error }: PasswordInputProps) {
         <input
           type={isPasswordVisible ? 'text' : 'password'}
           id="password"
-          className="block p-2.5 pr-10 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:ring-2 focus:ring-sky-200"
+          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pr-10 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-sky-200"
           placeholder="•••••••••"
           {...register}
         />

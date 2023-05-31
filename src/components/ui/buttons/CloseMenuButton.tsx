@@ -1,10 +1,10 @@
+import { MenuButtonProps } from '@/types/buttons';
 import { HiX } from 'react-icons/hi';
-import { MenuButtonProps } from '../../../types/buttons';
 
 function CloseMenuButton({ setIsMenuOpen }: MenuButtonProps) {
   return (
     <button
-      className="group absolute top-2 right-4 rounded"
+      className="group absolute right-4 top-2 rounded"
       type="button"
       onClick={setIsMenuOpen}
     >

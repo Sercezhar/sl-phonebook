@@ -8,7 +8,7 @@ interface AuthCalloutProps {
 
 function AuthCallout({ message, linkText, navigateTo }: AuthCalloutProps) {
   return (
-    <p className="p-4 font-medium text-gray-900 text-sm text-center border border-sky-400 rounded">
+    <p className="rounded border border-sky-400 p-4 text-center text-sm font-medium text-gray-900">
       {message}{' '}
       <Link to={navigateTo} className="font-semibold text-sky-400">
         {linkText}

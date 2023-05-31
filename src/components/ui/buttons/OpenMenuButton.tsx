@@ -1,5 +1,5 @@
+import { MenuButtonProps } from '@/types/buttons';
 import { HiMenu } from 'react-icons/hi';
-import { MenuButtonProps } from '../../../types/buttons';
 
 function OpenMenuButton({ setIsMenuOpen }: MenuButtonProps) {
   return (

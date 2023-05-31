@@ -11,19 +11,19 @@ function PasswordVisibilityToggle({
 }: PasswordVisibilityToggleProps) {
   return (
     <button
-      className="group absolute top-1/2 right-2 transform -translate-y-1/2 p-1"
+      className="group absolute right-2 top-1/2 -translate-y-1/2 transform p-1"
       type="button"
       onClick={onClick}
     >
       {isPasswordVisible ? (
         <HiEye
           size={20}
-          className="fill-gray-300 group-hover:fill-sky-400 transition-colors"
+          className="fill-gray-300 transition-colors group-hover:fill-sky-400"
         />
       ) : (
         <HiEyeOff
           size={20}
-          className="fill-gray-300 group-hover:fill-sky-400 transition-colors"
+          className="fill-gray-300 transition-colors group-hover:fill-sky-400"
         />
       )}
     </button>

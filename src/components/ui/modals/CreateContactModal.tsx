@@ -1,4 +1,4 @@
-import CreateContactForm from '@/pages/Contacts/CreateContactForm';
+import CreateContactForm from '@/components/CreateContactForm';
 import Modal from './Modal';
 
 type ModalProps = {
