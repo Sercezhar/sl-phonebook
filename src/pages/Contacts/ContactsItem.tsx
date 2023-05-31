@@ -28,7 +28,7 @@ function ContactsItem({
         <p className="text-ellipsis overflow-hidden">{number}</p>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex items-center justify-end">
         <ContactsItemActions
           id={id}
           isMenuVisible={isMenuVisible}
