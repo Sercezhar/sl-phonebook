@@ -13,11 +13,11 @@ export interface ContactAttributes {
   number: string;
 }
 
-interface ContactsFormProps {
+interface CreateContactFormProps {
   onClose?: () => void;
 }
 
-function ContactsForm({ onClose }: ContactsFormProps) {
+function CreateContactForm({ onClose }: CreateContactFormProps) {
   const { createContact } = useContacts();
 
   const contactSchema = yup.object().shape({
@@ -91,4 +91,4 @@ function ContactsForm({ onClose }: ContactsFormProps) {
   );
 }
 
-export default ContactsForm;
+export default CreateContactForm;
