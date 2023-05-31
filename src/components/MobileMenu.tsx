@@ -1,5 +1,5 @@
 import { useAuth } from '@/hooks/useAuth';
-import useClickOutside from '@/hooks/useClickOutside';
+import { useClickOutside } from '@/hooks/useClickOutside';
 import classNames from 'classnames';
 import { useState } from 'react';
 import AuthNav from './AuthNav';
@@ -14,14 +14,16 @@ function MobileMenu() {
 
   const ref = useClickOutside(() => handleMenuToggle(false));
 
-  function handleMenuToggle(isOpen: boolean) {
+  function handleMenuToggle(isOpen: boolean, isScroll: boolean = false) {
     setIsMenuOpen(isOpen);
-    document.body.classList.toggle('overflow-hidden');
+    isScroll
+      ? document.body.classList.add('overflow-hidden')
+      : document.body.classList.remove('overflow-hidden');
   }
 
   return (
     <div className="flex lg:hidden">
-      <OpenMenuButton setIsMenuOpen={() => handleMenuToggle(true)} />
+      <OpenMenuButton setIsMenuOpen={() => handleMenuToggle(true, true)} />
 
       <div
         className={classNames(
