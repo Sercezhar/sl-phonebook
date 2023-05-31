@@ -38,8 +38,7 @@ function Modal({
   });
 
   const contentTransition = useSpring({
-    opacity: isModalOpen ? 1 : 0,
-    scale: isModalOpen ? 1 : 0.5,
+    scale: isModalOpen ? 1 : 0.6,
     config: {
       duration: 150,
     },
