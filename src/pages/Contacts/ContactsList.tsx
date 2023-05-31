@@ -1,4 +1,4 @@
-import Loader from '@/components/Loader';
+import Notification from '@/components/Notification';
 import CreateContactButton from '@/components/ui/buttons/CreateContactButton';
 import CreateContactModal from '@/components/ui/modals/CreateContactModal';
 import EditContactModal from '@/components/ui/modals/EditContactModal';
@@ -9,6 +9,7 @@ import { ContactAttributes } from '@/types/contact';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ContactsItem from './ContactsItem';
+import ContactsItemSkeleton from './ContactsItemSkeleton';
 
 function ContactsList() {
   const { contacts, isLoading, getContacts, deleteContact } = useContacts();
@@ -46,50 +47,43 @@ function ContactsList() {
     setIsModalOpen(null);
   }
 
-  return isLoading ? (
-    <div className="relative h-[300px]">
-      <Loader />
-    </div>
-  ) : (
+  if (isLoading) {
+    return <ContactsItemSkeleton />;
+  }
+
+  if (contacts.length === 0) {
+    return <Notification message="The contact list is empty" />;
+  }
+  if (filteredContacts.length === 0) {
+    return <Notification message="No contacts found" />;
+  }
+
+  return (
     <div>
-      {contacts.length === 0 ? (
-        <div className="font-medium p-4 text-lg text-center text-gray-400">
-          The contact list is empty
-        </div>
-      ) : (
-        <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
-          {filteredContacts.length > 0 ? (
-            filteredContacts.map(({ id, name, number }) => (
-              <ContactsItem
-                key={id}
-                id={id}
-                name={name}
-                number={number}
-                isMenuVisible={clickedContact?.id === id}
-                toggleMenu={() => handleSetClickedContact({ id, name, number })}
-                setIsModalOpen={setIsModalOpen}
-              />
-            ))
-          ) : (
-            <li className="font-medium p-4 text-lg text-center text-gray-400">
-              No contacts found
-            </li>
-          )}
-        </ul>
-      )}
+      <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
+        {filteredContacts.map(({ id, name, number }) => (
+          <ContactsItem
+            key={id}
+            id={id}
+            name={name}
+            number={number}
+            isMenuVisible={clickedContact?.id === id}
+            toggleMenu={() => handleSetClickedContact({ id, name, number })}
+            setIsModalOpen={setIsModalOpen}
+          />
+        ))}
+      </ul>
 
       <Modal
         isModalOpen={isModalOpen === 'delete'}
         onClose={() => handleModalOnClose()}
         onConfirm={() => handleDeleteContact(clickedContact!.id)}
       />
-
       <EditContactModal
         isModalOpen={isModalOpen === 'edit'}
         contact={clickedContact}
         onClose={() => handleModalOnClose()}
       />
-
       <CreateContactModal
         isModalOpen={isModalOpen === 'create'}
         onClose={() => handleModalOnClose()}
