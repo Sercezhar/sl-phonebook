@@ -3,29 +3,32 @@ import CreateContactModal from '@/components/ui/modals/CreateContactModal';
 import EditContactModal from '@/components/ui/modals/EditContactModal';
 import Modal from '@/components/ui/modals/Modal';
 import { useContacts } from '@/hooks/useContacts';
-import { filterSelector } from '@/redux/filter/filterSelectors';
 import { ContactAttributes } from '@/types/contact';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useMemo, useState } from 'react';
 import ContactsItem from './ContactsItem';
 import ContactsItemSkeleton from './ContactsItemSkeleton';
 import Notification from './Notification';
 
-function ContactsList() {
+interface ContactsListProps {
+  filter: string;
+}
+
+function ContactsList({ filter }: ContactsListProps) {
+  const [clickedContact, setClickedContact] =
+    useState<ContactAttributes | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
+
   const { contacts, isLoading, getContacts, deleteContact } = useContacts();
 
   useEffect(() => {
     getContacts();
   }, []);
 
-  const [clickedContact, setClickedContact] =
-    useState<ContactAttributes | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
-
-  const filter = useSelector(filterSelector);
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const filteredContacts = useMemo(() => {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }, [filter, contacts]);
 
   function handleSetClickedContact(contact: ContactAttributes) {
     setClickedContact(prev =>
