@@ -1,16 +1,14 @@
-import { filterSelector } from '@/redux/filter/filterSelectors';
-import { setFilter } from '@/redux/filter/filterSlice';
 import { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-function Filter() {
-  const dispatch = useDispatch();
+interface FilterProps {
+  filter: string;
+  setFilter: (value: string) => void;
+}
 
-  const filter = useSelector(filterSelector);
-
+function Filter({ filter, setFilter }: FilterProps) {
   function handleFilterInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.currentTarget;
-    dispatch(setFilter(value));
+    setFilter(value);
   }
 
   return (
