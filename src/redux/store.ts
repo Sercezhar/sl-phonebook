@@ -1,22 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactsReducer } from './contacts/contactsSlice';
-import { authReducer } from './auth/authSlice';
-import { filterReducer } from './filter/filterSlice';
 import {
-  persistStore,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
+  persistStore,
 } from 'redux-persist';
+import { authReducer } from './auth/authSlice';
+import { contactsReducer } from './contacts/contactsSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     contacts: contactsReducer,
-    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
