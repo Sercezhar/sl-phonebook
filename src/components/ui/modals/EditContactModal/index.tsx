@@ -2,13 +2,21 @@ import { ContactAttributes } from '@/types/contact';
 import Modal from '../Modal';
 import EditContactForm from './EditContactForm';
 
-type ModalProps = {
+type EditContactModalProps = {
   isModalOpen: boolean;
   contact: ContactAttributes | null;
   onClose: () => void;
+  closeModal: () => void;
+  closeActions: () => void;
 };
 
-function EditContactModal({ isModalOpen, contact, onClose }: ModalProps) {
+function EditContactModal({
+  isModalOpen,
+  contact,
+  onClose,
+  closeModal,
+  closeActions,
+}: EditContactModalProps) {
   return (
     <Modal
       isModalOpen={isModalOpen}
@@ -17,7 +25,12 @@ function EditContactModal({ isModalOpen, contact, onClose }: ModalProps) {
       onClose={onClose}
       onConfirm={() => {}}
     >
-      <EditContactForm contact={contact} onClose={onClose} />
+      <EditContactForm
+        contact={contact}
+        onClose={onClose}
+        closeModal={closeModal}
+        closeActions={closeActions}
+      />
     </Modal>
   );
 }
