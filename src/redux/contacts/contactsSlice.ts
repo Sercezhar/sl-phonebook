@@ -1,6 +1,13 @@
-import { ContactAttributes } from '@/types/contact';
+import { ContactsState } from '@/types/redux';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import type { RootState } from '../store';
+import {
+  handleFulfilledCreate,
+  handleFulfilledDelete,
+  handleFulfilledEdit,
+  handleFulfilledGet,
+  handlePending,
+  handleRejected,
+} from './contactsHandlers';
 import {
   createContact,
   deleteContact,
@@ -8,34 +15,11 @@ import {
   getContacts,
 } from './contactsOperations';
 
-interface ContactsState {
-  items: ContactAttributes[];
-  isLoading: boolean;
-  error: string | null;
-}
-
 const initialState: ContactsState = {
   items: [],
-  isLoading: false,
+  status: 'idle',
   error: null,
 };
-
-function handlePending(state: ContactsState) {
-  state.isLoading = true;
-}
-
-function handleFulfilled(state: ContactsState) {
-  state.isLoading = false;
-  state.error = null;
-}
-
-function handleRejected(
-  state: ContactsState,
-  { payload }: { payload: string | undefined }
-) {
-  state.isLoading = false;
-  state.error = payload || 'Something went wrong';
-}
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -43,33 +27,14 @@ const contactsSlice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(getContacts.fulfilled, (state, { payload }) => {
-        handleFulfilled(state);
-        state.items = payload;
-      })
-      .addCase(createContact.fulfilled, (state, { payload }) => {
-        handleFulfilled(state);
-        state.items.push(payload);
-      })
-      .addCase(deleteContact.fulfilled, (state, { payload }) => {
-        handleFulfilled(state);
-        state.items = state.items.filter(item => item.id !== payload.id);
-      })
-      .addCase(editContact.fulfilled, (state, { payload }) => {
-        handleFulfilled(state);
-        state.items = state.items.map(item =>
-          item.id === payload.id ? payload : item
-        );
-      })
-      .addMatcher(
-        isAnyOf(
-          getContacts.pending,
-          createContact.pending,
-          deleteContact.pending,
-          editContact.pending
-        ),
-        handlePending
-      )
+      .addCase(getContacts.pending, state => handlePending(state, 'fetching'))
+      .addCase(createContact.pending, state => handlePending(state, 'creating'))
+      .addCase(deleteContact.pending, state => handlePending(state, 'deleting'))
+      .addCase(editContact.pending, state => handlePending(state, 'updating'))
+      .addCase(getContacts.fulfilled, handleFulfilledGet)
+      .addCase(createContact.fulfilled, handleFulfilledCreate)
+      .addCase(deleteContact.fulfilled, handleFulfilledDelete)
+      .addCase(editContact.fulfilled, handleFulfilledEdit)
       .addMatcher(
         isAnyOf(
           getContacts.rejected,
@@ -81,5 +46,4 @@ const contactsSlice = createSlice({
       ),
 });
 
-export const contacts = (state: RootState) => state.contacts.items;
 export const contactsReducer = contactsSlice.reducer;
