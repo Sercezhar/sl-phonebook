@@ -1,3 +1,4 @@
+import Loader from '@/components/Loader';
 import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
 import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
@@ -9,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 function LogInForm() {
-  const { logInUser } = useAuth();
+  const { logInUser, isLoading } = useAuth();
 
   const logInSchema = yup.object().shape({
     email: yup
@@ -55,7 +56,16 @@ function LogInForm() {
           />
         </div>
 
-        <PrimaryButton type="submit" text="Log in" />
+        {isLoading ? (
+          <Loader
+            position="static"
+            background="none"
+            size="42px"
+            borderWidth="6px"
+          />
+        ) : (
+          <PrimaryButton type="submit" text="Log in" />
+        )}
       </form>
     </div>
   );
