@@ -1,3 +1,4 @@
+import { AuthorizedUser } from '@/types/redux';
 import {
   LogInAttributes,
   RegisterAttributes,
@@ -7,14 +8,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { RootState } from '../store';
-
-interface AuthorizedUser {
-  user: {
-    name: string;
-    email: string;
-  };
-  token: string;
-}
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
