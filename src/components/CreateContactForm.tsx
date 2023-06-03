@@ -1,13 +1,16 @@
 import { patternPhone } from '@/constants/regExPatterns';
-import { useContacts } from '@/hooks/useContacts';
+import { useContactsStatus } from '@/hooks/useContactsStatus';
+import { createContact } from '@/redux/contacts/contactsOperations';
+import { useAppDispatch } from '@/redux/hooks';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import Loader from './Loader';
 import Input from './form/Input';
 import PrimaryButton from './ui/buttons/PrimaryButton';
 import SecondaryButton from './ui/buttons/SecondaryButton';
 
-export interface ContactAttributes {
+interface ContactAttributes {
   firstName: string;
   lastName: string;
   number: string;
@@ -18,7 +21,9 @@ interface CreateContactFormProps {
 }
 
 function CreateContactForm({ onClose }: CreateContactFormProps) {
-  const { createContact } = useContacts();
+  const dispatch = useAppDispatch();
+
+  const { isCreating } = useContactsStatus();
 
   const contactSchema = yup.object().shape({
     firstName: yup.string().required('is a required field'),
@@ -45,7 +50,7 @@ function CreateContactForm({ onClose }: CreateContactFormProps) {
       number: data.number,
     };
 
-    createContact(newContact);
+    dispatch(createContact(newContact));
     reset();
     onClose?.();
   }
@@ -84,7 +89,16 @@ function CreateContactForm({ onClose }: CreateContactFormProps) {
         </li>
 
         <li>
-          <PrimaryButton type="submit" text="Create" />
+          {isCreating ? (
+            <Loader
+              position="static"
+              background="none"
+              size="2.5rem"
+              borderWidth="6px"
+            />
+          ) : (
+            <PrimaryButton type="submit" text="Create" />
+          )}
         </li>
       </ul>
     </form>
