@@ -7,7 +7,7 @@ interface CreateContactButtonProps {
 function CreateContactButton({ openModal }: CreateContactButtonProps) {
   return (
     <button
-      className="fixed bottom-16 right-14 rounded-full bg-sky-400 p-2 lg:hidden"
+      className="fixed bottom-16 right-16 rounded-full bg-sky-400 p-2 lg:hidden"
       type="button"
       onClick={openModal}
     >

@@ -2,8 +2,8 @@ import { useClickOutside } from '@/hooks/useClickOutside';
 import { useKeyPress } from '@/hooks/useKeyPress';
 import { animated, useSpring, useTransition } from '@react-spring/web';
 import { ReactNode } from 'react';
-import PrimaryButton from '../buttons/PrimaryButton';
-import SecondaryButton from '../buttons/SecondaryButton';
+import PrimaryButton from './buttons/PrimaryButton';
+import SecondaryButton from './buttons/SecondaryButton';
 
 type ModalProps = {
   isModalOpen: boolean;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
-import PasswordVisibilityToggle from '../ui/buttons/PasswordVisibilityToggle';
+import PasswordVisibilityToggle from './PasswordVisibilityToggle';
 
 interface PasswordInputProps {
   register: UseFormRegisterReturn;

@@ -1,12 +1,12 @@
-import CloseMenuButton from '@/components/ui/buttons/CloseMenuButton';
-import OpenMenuButton from '@/components/ui/buttons/OpenMenuButton';
 import { useAuth } from '@/hooks/useAuth';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import classNames from 'classnames';
 import { useState } from 'react';
-import AuthNav from './AuthNav';
-import PrimaryNav from './PrimaryNav';
-import UserMenu from './UserMenu';
+import AuthNav from '../AuthNav';
+import PrimaryNav from '../PrimaryNav';
+import UserMenu from '../UserMenu';
+import CloseMenuButton from './CloseMenuButton';
+import OpenMenuButton from './OpenMenuButton';
 
 function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

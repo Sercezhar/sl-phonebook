@@ -1,5 +1,5 @@
 import CreateContactForm from '@/components/CreateContactForm';
-import Modal from './Modal';
+import Modal from '@/components/ui/Modal';
 
 type ModalProps = {
   isModalOpen: boolean;

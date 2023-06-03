@@ -1,13 +1,13 @@
 import Input from '@/components/form/Input';
+import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
+import SecondaryButton from '@/components/ui/buttons/SecondaryButton';
 import { patternPhone } from '@/constants/regExPatterns';
+import { editContact } from '@/redux/contacts/contactsOperations';
+import { useAppDispatch } from '@/redux/hooks';
 import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import PrimaryButton from '../../buttons/PrimaryButton';
-import SecondaryButton from '../../buttons/SecondaryButton';
-import { useAppDispatch } from '@/redux/hooks';
-import { editContact } from '@/redux/contacts/contactsOperations';
 
 interface EditContactFormProps {
   contact: ContactAttributes | null;

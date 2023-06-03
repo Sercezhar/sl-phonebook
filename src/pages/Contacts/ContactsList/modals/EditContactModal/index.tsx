@@ -1,5 +1,5 @@
+import Modal from '@/components/ui/Modal';
 import { ContactAttributes } from '@/types/contact';
-import Modal from '../Modal';
 import EditContactForm from './EditContactForm';
 
 type EditContactModalProps = {
