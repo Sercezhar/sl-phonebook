@@ -1,3 +1,4 @@
+import Loader from '@/components/Loader';
 import Input from '@/components/form/Input';
 import PasswordInput from '@/components/form/PasswordInput';
 import PrimaryButton from '@/components/ui/buttons/PrimaryButton';
@@ -9,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 function SignUpForm() {
-  const { registerUser } = useAuth();
+  const { registerUser, isLoading } = useAuth();
 
   const signUnSchema = yup.object().shape({
     name: yup
@@ -67,7 +68,16 @@ function SignUpForm() {
           />
         </div>
 
-        <PrimaryButton type="submit" text="Sign up" />
+        {isLoading ? (
+          <Loader
+            position="static"
+            background="none"
+            size="42px"
+            borderWidth="6px"
+          />
+        ) : (
+          <PrimaryButton type="submit" text="Sign up" />
+        )}
       </form>
     </div>
   );
