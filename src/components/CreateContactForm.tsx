@@ -93,7 +93,7 @@ function CreateContactForm({ onClose }: CreateContactFormProps) {
             <Loader
               position="static"
               background="none"
-              size="2.5rem"
+              size="42px"
               borderWidth="6px"
             />
           ) : (
