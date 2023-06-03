@@ -29,7 +29,12 @@ function ContactsItem({
 
       <div className="flex flex-col overflow-hidden whitespace-nowrap">
         <p className="overflow-hidden text-ellipsis text-gray-600">{name}</p>
-        <p className="overflow-hidden text-ellipsis">{number}</p>
+        <a
+          className="w-fit overflow-hidden text-ellipsis transition-colors hover:text-sky-400"
+          href={`tel:${number}`}
+        >
+          {number}
+        </a>
       </div>
 
       <div className="flex items-center justify-center">
