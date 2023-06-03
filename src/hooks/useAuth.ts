@@ -16,6 +16,7 @@ export function useAuth() {
 
   const user: UserAttributes = useAppSelector(state => state.auth.user);
   const token: string | null = useAppSelector(state => state.auth.token);
+  const isLoading: boolean = useAppSelector(state => state.auth.isLoading);
   const isLoggedIn: boolean = useAppSelector(state => state.auth.isLoggedIn);
   const isRefreshing: boolean = useAppSelector(
     state => state.auth.isRefreshing
@@ -29,6 +30,7 @@ export function useAuth() {
   return {
     user,
     token,
+    isLoading,
     isLoggedIn,
     isRefreshing,
     registerUser: handleRegister,
