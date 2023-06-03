@@ -1,8 +1,7 @@
-import CreateContactButton from '@/components/ui/buttons/CreateContactButton';
-import CreateContactModal from '@/components/ui/modals/CreateContactModal';
-import EditContactModal from '@/components/ui/modals/EditContactModal';
-import Modal from '@/components/ui/modals/Modal';
+import Modal from '@/components/ui/Modal';
 import { useContactsStatus } from '@/hooks/useContactsStatus';
+import CreateContactModal from '@/pages/Contacts/ContactsList/modals/CreateContactModal';
+import EditContactModal from '@/pages/Contacts/ContactsList/modals/EditContactModal';
 import {
   deleteContact,
   getContacts,
@@ -13,6 +12,7 @@ import { ContactAttributes } from '@/types/contact';
 import { useEffect, useMemo, useState } from 'react';
 import ContactsItem from './ContactsItem';
 import ContactsItemSkeleton from './ContactsItemSkeleton';
+import CreateContactButton from './CreateContactButton';
 import Notification from './Notification';
 
 interface ContactsListProps {
