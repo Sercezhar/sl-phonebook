@@ -1,20 +1,28 @@
 import Input from '@/components/form/Input';
 import { patternPhone } from '@/constants/regExPatterns';
-import { useContacts } from '@/hooks/useContacts';
 import { ContactAttributes, NewContactAttributes } from '@/types/contact';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import PrimaryButton from '../../buttons/PrimaryButton';
 import SecondaryButton from '../../buttons/SecondaryButton';
+import { useAppDispatch } from '@/redux/hooks';
+import { editContact } from '@/redux/contacts/contactsOperations';
 
 interface EditContactFormProps {
   contact: ContactAttributes | null;
   onClose: () => void;
+  closeModal: () => void;
+  closeActions: () => void;
 }
 
-function EditContactForm({ contact, onClose }: EditContactFormProps) {
-  const { editContact } = useContacts();
+function EditContactForm({
+  contact,
+  onClose,
+  closeModal,
+  closeActions,
+}: EditContactFormProps) {
+  const dispatch = useAppDispatch();
 
   const contactSchema = yup.object().shape({
     name: yup.string().required('is a required field'),
@@ -33,7 +41,7 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
     resolver: yupResolver(contactSchema),
   });
 
-  function onSubmit(data: NewContactAttributes) {
+  async function onSubmit(data: NewContactAttributes) {
     const noChanges =
       contact!.name === data.name && contact!.number === data.number;
 
@@ -47,8 +55,9 @@ function EditContactForm({ contact, onClose }: EditContactFormProps) {
       ...data,
     };
 
-    editContact(editedContact);
-    onClose();
+    closeModal();
+    await dispatch(editContact(editedContact));
+    closeActions();
   }
 
   return (
