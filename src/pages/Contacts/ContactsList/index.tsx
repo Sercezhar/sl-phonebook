@@ -59,45 +59,37 @@ function ContactsList({ filter }: ContactsListProps) {
     setIsModalOpen(null);
   }
 
-  if (isFetching) {
-    const skeletons = [...Array(6).keys()];
-
-    return (
-      <ul>
-        {skeletons.map(i => (
-          <ContactsItemSkeleton key={i} />
-        ))}
-      </ul>
-    );
-  }
-
-  if (contacts.length === 0) {
-    return <Notification message="The contact list is empty" />;
-  }
-
-  if (filteredContacts.length === 0) {
-    return <Notification message="No contacts found" />;
-  }
-
   return (
     <div>
-      <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
-        {filteredContacts.map(({ id, name, number }) =>
-          isUpdating && clickedContact?.id === id ? (
-            <ContactsItemSkeleton key={id} />
-          ) : (
-            <ContactsItem
-              key={id}
-              id={id}
-              name={name}
-              number={number}
-              isMenuVisible={clickedContact?.id === id}
-              toggleMenu={() => handleSetClickedContact({ id, name, number })}
-              setIsModalOpen={setIsModalOpen}
-            />
-          )
-        )}
-      </ul>
+      {isFetching ? (
+        <ul>
+          {[...Array(6).keys()].map(i => (
+            <ContactsItemSkeleton key={i} />
+          ))}
+        </ul>
+      ) : contacts.length === 0 ? (
+        <Notification message="The contact list is empty" />
+      ) : filteredContacts.length === 0 ? (
+        <Notification message="No contacts found" />
+      ) : (
+        <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
+          {filteredContacts.map(({ id, name, number }) =>
+            isUpdating && clickedContact?.id === id ? (
+              <ContactsItemSkeleton key={id} />
+            ) : (
+              <ContactsItem
+                key={id}
+                id={id}
+                name={name}
+                number={number}
+                isMenuVisible={clickedContact?.id === id}
+                toggleMenu={() => handleSetClickedContact({ id, name, number })}
+                setIsModalOpen={setIsModalOpen}
+              />
+            )
+          )}
+        </ul>
+      )}
 
       <Modal
         isModalOpen={isModalOpen === 'delete'}
