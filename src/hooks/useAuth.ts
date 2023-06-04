@@ -24,7 +24,7 @@ export function useAuth() {
 
   const handleRegister = (data: RegisterAttributes) => dispatch(register(data));
   const handleLogIn = (data: LogInAttributes) => dispatch(logIn(data));
-  const handleOut = () => dispatch(logOut());
+  const handleLogOut = () => dispatch(logOut());
   const handleRefreshUser = () => dispatch(refreshUser());
 
   return {
@@ -35,7 +35,7 @@ export function useAuth() {
     isRefreshing,
     registerUser: handleRegister,
     logInUser: handleLogIn,
-    logOutUser: handleOut,
+    logOutUser: handleLogOut,
     refreshUser: handleRefreshUser,
   };
 }
