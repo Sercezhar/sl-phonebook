@@ -10,6 +10,8 @@ export default {
       backgroundImage: {
         hero: "url('/illustrations/connection.svg')",
         'error-404': "url('/illustrations/website-down.svg')",
+        'contacts-empty': "url('/illustrations/waiting-for-you.svg')",
+        'contacts-not-found': "url('/illustrations/looking-for-binocular.svg')",
       },
     },
   },
