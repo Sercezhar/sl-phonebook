@@ -45,12 +45,14 @@ function MobileMenu() {
           <CloseMenuButton setIsMenuOpen={() => handleMenuToggle(false)} />
 
           <div>
-            <PrimaryNav closeMenu={() => setIsMenuOpen(false)} />
+            <PrimaryNav closeMenu={() => handleMenuToggle(false)} />
 
-            {!isLoggedIn && <AuthNav closeMenu={() => setIsMenuOpen(false)} />}
+            {!isLoggedIn && (
+              <AuthNav closeMenu={() => handleMenuToggle(false)} />
+            )}
           </div>
 
-          {isLoggedIn && <UserMenu closeMenu={() => setIsMenuOpen(false)} />}
+          {isLoggedIn && <UserMenu closeMenu={() => handleMenuToggle(false)} />}
         </div>
       </div>
     </div>
