@@ -23,7 +23,7 @@ function PasswordInput({ register, error }: PasswordInputProps) {
           </span>
         )}
       </label>
-      <span className="relative">
+      <div className="relative">
         <input
           type={isPasswordVisible ? 'text' : 'password'}
           id="password"
@@ -36,7 +36,7 @@ function PasswordInput({ register, error }: PasswordInputProps) {
           isPasswordVisible={isPasswordVisible}
           onClick={() => setIsPasswordVisible(prevState => !prevState)}
         />
-      </span>
+      </div>
     </div>
   );
 }
