@@ -11,7 +11,7 @@ function PasswordVisibilityToggle({
 }: PasswordVisibilityToggleProps) {
   return (
     <button
-      className="group absolute right-2 top-1/2 -translate-y-1/2 transform p-1"
+      className="group absolute right-2 top-1/2 -translate-y-1/2 p-1"
       type="button"
       onClick={onClick}
     >

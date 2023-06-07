@@ -27,7 +27,7 @@ function MobileMenu() {
 
       <div
         className={classNames(
-          'absolute left-0 right-0 top-0 h-[100dvh] overflow-hidden bg-black transition',
+          'absolute left-0 right-0 top-0 h-screen overflow-hidden bg-black transition supports-[height:100dvh]:h-[100dvh]',
 
           isMenuOpen
             ? 'pointer-events-auto bg-opacity-30 delay-0'
