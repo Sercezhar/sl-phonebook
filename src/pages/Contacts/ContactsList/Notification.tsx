@@ -3,7 +3,7 @@ interface NotificationProps {
   image?: null | string;
 }
 
-function Notification({ message, image }: NotificationProps) {
+function Notification({ message, image = null }: NotificationProps) {
   return (
     <div>
       <h3 className="mb-4 p-4 text-center text-lg font-medium text-gray-400">
