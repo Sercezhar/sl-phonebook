@@ -68,9 +68,15 @@ function ContactsList({ filter }: ContactsListProps) {
           ))}
         </ul>
       ) : contacts.length === 0 ? (
-        <Notification message="The contact list is empty" />
+        <Notification
+          message="The contact list is empty"
+          image="bg-contacts-empty"
+        />
       ) : filteredContacts.length === 0 ? (
-        <Notification message="No contacts found" />
+        <Notification
+          message="No contacts found"
+          image="bg-contacts-not-found"
+        />
       ) : (
         <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
           {filteredContacts.map(({ id, name, number }) =>
