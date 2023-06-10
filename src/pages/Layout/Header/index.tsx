@@ -9,7 +9,7 @@ function Header() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <header className="sticky top-0 z-20 mb-7 h-[56px] bg-sky-400 shadow">
+    <header className="sticky top-0 z-20 mb-6 h-[56px] bg-sky-400 shadow lg:mb-10">
       <div className="container mx-auto flex h-full items-center justify-between px-4">
         <div className="hidden w-full lg:block lg:max-w-[40%]">
           <PrimaryNav />

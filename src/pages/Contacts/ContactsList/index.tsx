@@ -78,7 +78,7 @@ function ContactsList({ filter }: ContactsListProps) {
           image="bg-contacts-not-found"
         />
       ) : (
-        <ul className="h-full lg:h-[350px] lg:overflow-y-auto">
+        <ul className="h-full lg:h-[350px] lg:overflow-y-auto 2xl:h-[520px]">
           {filteredContacts.map(({ id, name, number }) =>
             isUpdating && clickedContact?.id === id ? (
               <ContactsItemSkeleton key={id} />
