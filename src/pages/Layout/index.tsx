@@ -15,7 +15,7 @@ function Layout() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div>
+    <>
       <Header />
 
       <div className="container mx-auto px-4">
@@ -25,7 +25,7 @@ function Layout() {
       </div>
 
       <Toaster toastOptions={{ style: { borderRadius: '5px' } }} />
-    </div>
+    </>
   );
 }
 
