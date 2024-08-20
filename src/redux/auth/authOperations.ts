@@ -9,7 +9,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { RootState } from '../store';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global';
 
 function setAuthHeader(token: string) {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
